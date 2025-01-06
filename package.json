@@ -1,0 +1,32 @@
+{
+  "name": "xenialsoft",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.15.3+sha512.1f79bc245a66eb0b07c5d4d83131240774642caaa86ef7d0434ab47c0d16f66b04e21e0c086eb61e62c77efc4d7f7ec071afad3796af64892fae66509173893a",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/XENIALSOFT/xenialsoft.github.io.git"
+  },
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "postinstall": "nuxi prepare"
+  },
+  "dependencies": {
+    "nuxt": "^3.15.1",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.12.1",
+    "@nuxt/eslint": "^0.7.4",
+    "@nuxtjs/tailwindcss": "npm:@nuxtjs/tailwindcss@nightly",
+    "@types/eslint-plugin-tailwindcss": "^3.17.0",
+    "daisyui": "^4.12.23",
+    "eslint": "^9.17.0",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "tailwindcss": "^3.4.17"
+  }
+}
