@@ -7,5 +7,6 @@ const title = ref(`(주)제니얼소프트 | XENIALSOFT Inc.`);
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator />
     <NuxtWelcome :title />
+     <!-- <NuxtPage /> -->
   </div>
 </template>
