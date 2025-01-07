@@ -3,10 +3,12 @@
 </script>
 
 <template>
-  <div>
-    Hello, Nuxt!
-  </div>
-  <div>
-    Hello, XENIALSOFT!
+  <div class="container mx-auto px-9">
+    <div class="prose">
+      <h1>
+        Hello, Nuxt! <br>
+        Hello, XENIALSOFT!
+      </h1>
+    </div>
   </div>
 </template>

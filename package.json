@@ -23,6 +23,7 @@
     "@antfu/eslint-config": "^3.12.1",
     "@nuxt/eslint": "^0.7.4",
     "@nuxtjs/tailwindcss": "npm:@nuxtjs/tailwindcss@nightly",
+    "@tailwindcss/typography": "^0.5.15",
     "@types/eslint-plugin-tailwindcss": "^3.17.0",
     "@vueuse/core": "^12.3.0",
     "@vueuse/nuxt": "^12.3.0",
