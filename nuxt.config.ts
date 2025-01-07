@@ -80,6 +80,22 @@ export default defineNuxtConfig({
     },
   },
   /**
+   * 글로벌 CSS 파일 및 CSS 라이브러리를 설정합니다.
+   * 이 설정을 통해 애플리케이션 전체에서 사용될 CSS 파일이나
+   * CSS 라이브러리를 지정할 수 있습니다. 지정된 CSS 파일은
+   * 모든 페이지에 자동으로 포함됩니다.
+   *
+   * 예시:
+   * css: [
+   *   '~/assets/css/main.css', // 글로벌 CSS 파일
+   *   'vuetify/dist/vuetify.min.css', // 외부 CSS 라이브러리
+   *   // 추가 CSS 파일들을 여기에 추가할 수 있습니다.
+   * ]
+   */
+  css: [
+    '~/assets/css/main.css',
+  ],
+  /**
    * 미래 기능 설정을 구성합니다.
    * 이 설정을 통해 Nuxt의 미래 릴리스에서 도입될 새로운 기능들을
    * 미리 사용할 수 있습니다. 일반적으로 실험적인 기능이나

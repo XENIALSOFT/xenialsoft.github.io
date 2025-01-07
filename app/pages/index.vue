@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { promiseTimeout } from '@vueuse/core';
 
-await promiseTimeout(3000);
 </script>
 
 <template>

@@ -6,6 +6,9 @@ export default {
     './app/**/*/.{vue,ts}',
   ],
   plugins: [
-    daisyui
+    daisyui,
   ],
+  daisyui: {
+    themes: ['light'],
+  },
 } as Config;
