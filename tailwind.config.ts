@@ -27,6 +27,9 @@ export default {
           'sans-serif',
         ],
       },
+      transformStyle: {
+        'preserve-3d': 'preserve-3d',
+      },
     },
   },
   plugins: [
