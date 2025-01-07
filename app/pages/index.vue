@@ -17,9 +17,9 @@ const devEnvData = ref([
 
 <template>
   <div
-    class="container prose m-auto flex h-full flex-col justify-around gap-y-32 text-center"
+    class="container prose m-auto flex h-full flex-col justify-around gap-y-32 pt-12 text-center"
   >
-    <div class="flex-grow" />
+    <!-- <div class="flex-grow" /> -->
     <section>
       <h1>(주)제니얼소프트</h1>
       <h5>
