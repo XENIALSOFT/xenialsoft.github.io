@@ -11,7 +11,7 @@
           <span class="text-[#00ccdd]">SOFT</span>
         </div>
         <div class="flex flex-col gap-y-2 text-end text-xs text-[#ffffff]">
-          <span>이메일 : xenialsofoot@xenialsoft.com</span>
+          <span>이메일 : xenialsoft@xenialsoft.com</span>
           <span>(22643) 인천광역시 서구 원당대로 671, 5층 B12호(마전동, 성광빌딩)</span>
           <span>Copyright © XENIALSOFT Inc. All rights reserved.</span>
         </div>
