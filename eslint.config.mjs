@@ -6,7 +6,7 @@ import nuxt from './.nuxt/eslint.config.mjs';
 export default nuxt(
   antfu(
     {
-      // formatters: true,
+      formatters: true,
       stylistic: {
         indent: 2, // 4, or 'tab'
         quotes: 'single', // or 'double'
@@ -28,8 +28,8 @@ export default nuxt(
         'style/max-statements-per-line': ['error', { max: 2 }],
         'unused-imports/no-unused-imports': ['error'],
         'vue/max-attributes-per-line': ['error', {
-          singleline: { max: 1, },
-          multiline: { max: 1, },
+          singleline: { max: 1 },
+          multiline: { max: 1 },
         }],
         'tailwindcss/classnames-order': 'error',
       },
