@@ -3,9 +3,11 @@
 </script>
 
 <template>
-  <div class="h-full">
+  <div class="grid h-full grid-rows-[auto_1fr_auto]">
     <TheHeader />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <TheFooter />
   </div>
 </template>
