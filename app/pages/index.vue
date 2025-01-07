@@ -12,14 +12,12 @@
           </h5>
           <br>
           <h3>수행 가능한 개발 환경</h3>
-          <div class="flex gap-x-4">
+          <div class="flex flex-col items-center gap-4 sm:flex-row">
             <div class="flip">
               <div class="card">
-                <!-- 앞면 -->
                 <div class="front">
                   FrontEnd
                 </div>
-                <!-- 뒷면 -->
                 <div class="back">
                   JavaScript<br>
                   JQuery<br>
@@ -29,11 +27,9 @@
             </div>
             <div class="flip">
               <div class="card">
-                <!-- 앞면 -->
                 <div class="front">
                   BackEnd
                 </div>
-                <!-- 뒷면 -->
                 <div class="back">
                   Java<br>
                   SpringBoot
@@ -42,11 +38,9 @@
             </div>
             <div class="flip">
               <div class="card">
-                <!-- 앞면 -->
                 <div class="front">
                   DB
                 </div>
-                <!-- 뒷면 -->
                 <div class="back">
                   Oracle<br>
                   MariaDB<br>
@@ -70,7 +64,6 @@
 .flip {
   width: 200px;
   height: 250px;
-  perspective: 1100px;
 }
 .card {
   width: 100%;

@@ -5,7 +5,7 @@
 <template>
   <foooter>
     <div class="bg-[#242424]">
-      <div class="container mx-auto flex h-[100px] items-center justify-between px-9">
+      <div class="container mx-auto flex min-h-[100px] flex-col items-center justify-between px-9 sm:flex-row">
         <div class="text-2xl font-bold">
           <span class="text-[#ffffff]">XENIAL</span>
           <span class="text-[#00ccdd]">SOFT</span>

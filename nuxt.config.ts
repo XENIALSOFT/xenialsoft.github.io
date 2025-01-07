@@ -72,6 +72,9 @@ export default defineNuxtConfig({
     baseURL: '/',
     head: {
       charset: 'utf-8',
+      htmlAttrs: {
+        lang: 'ko',
+      },
       title: '(주)제니얼소프트 | XENIALSOFT Inc.',
       viewport: 'width=device-width,initial-scale=1',
       link: [
