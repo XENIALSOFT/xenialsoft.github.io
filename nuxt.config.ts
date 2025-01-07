@@ -75,7 +75,7 @@ export default defineNuxtConfig({
       title: '(주)제니얼소프트 | XENIALSOFT Inc.',
       viewport: 'width=device-width,initial-scale=1',
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg', sizes: 'any' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon_dark.svg', sizes: 'any' },
       ],
     },
   },
