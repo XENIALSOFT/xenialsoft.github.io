@@ -31,6 +31,7 @@ export default nuxt(
           singleline: { max: 1 },
           multiline: { max: 1 },
         }],
+        'vue/no-multiple-template-root': ['off'],
         'tailwindcss/classnames-order': 'error',
       },
     },

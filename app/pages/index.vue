@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { promiseTimeout } from '@vueuse/core';
 
+await promiseTimeout(3000);
 </script>
 
 <template>
@@ -10,6 +12,8 @@
     Hello, XENIALSOFT!
   </div>
   <div>
-    <button class="btn">Button</button>
+    <button class="btn">
+      Button
+    </button>
   </div>
 </template>
