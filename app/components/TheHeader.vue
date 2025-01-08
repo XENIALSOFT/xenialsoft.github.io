@@ -10,7 +10,7 @@
         to="/"
       >
         <span class="text-[#000000]">XENIAL</span>
-        <span class="text-[#00ccdd]">SOFT</span>
+        <span class="text-[#ff1493]">SOFT</span>
       </NuxtLink>
     </div>
   </header>

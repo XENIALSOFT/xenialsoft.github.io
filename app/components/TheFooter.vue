@@ -8,7 +8,7 @@
       <div class="container mx-auto flex min-h-[100px] flex-col items-center justify-between gap-y-8 px-0 py-8 sm:flex-row sm:gap-y-0 sm:px-4 sm:py-0">
         <div class="text-2xl font-bold">
           <span class="text-[#ffffff]">XENIAL</span>
-          <span class="text-[#00ccdd]">SOFT</span>
+          <span class="text-[#ff1493]">SOFT</span>
         </div>
         <div class="flex flex-col gap-y-4 text-center text-xs text-[#ffffff] sm:gap-y-2 sm:text-end">
           <span>xenialsofoot@xenialsoft.com</span>
