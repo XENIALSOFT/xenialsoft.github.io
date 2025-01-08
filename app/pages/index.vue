@@ -1,7 +1,7 @@
 <template>
   <div class="container m-auto flex h-full flex-col gap-y-32 py-24 text-center">
     <section>
-      <h1 class="mb-8 text-3xl font-bold sm:text-6xl">
+      <h1 class="mb-8 text-3xl font-bold sm:mb-16 sm:text-6xl">
         (주)제니얼소프트
       </h1>
       <div class="flex flex-col gap-y-6 text-sm sm:text-3xl">
