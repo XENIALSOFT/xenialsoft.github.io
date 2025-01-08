@@ -11,7 +11,7 @@
 
   // Tailwindcss
   "css.lint.unknownAtRules": "ignore",
-  "tailwindCSS.rootFontSize": 10,
+  // "tailwindCSS.rootFontSize": 10,
 
   "files.associations": {
     "*.css": "tailwindcss",

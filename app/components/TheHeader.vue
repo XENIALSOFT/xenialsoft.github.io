@@ -4,7 +4,7 @@
 
 <template>
   <header>
-    <div class="container mx-auto flex min-h-[100px] items-center px-9">
+    <div class="container mx-auto flex min-h-[100px] items-center px-4">
       <NuxtLink
         class="text-2xl font-bold"
         to="/"

@@ -16,21 +16,22 @@ const devEnvData = ref([
 </script>
 
 <template>
-  <div
-    class="container prose m-auto flex h-full flex-col justify-around gap-y-32 pt-12 text-center"
-  >
-    <!-- <div class="flex-grow" /> -->
+  <div class="container m-auto flex h-full flex-col gap-y-32 py-12 text-center">
     <section>
-      <h1>(주)제니얼소프트</h1>
-      <h5>
+      <h1 class="mb-8 text-3xl font-bold">
+        (주)제니얼소프트
+      </h1>
+      <h5 class="text-xl">
         제니얼소프트는 웹 외주 개발을 전문으로 하고 있습니다.
         <br>
         고품질과 기술력을 바탕으로 개발 프로젝트를 수행하고 있습니다.
       </h5>
     </section>
     <section>
-      <h3>수행 가능한 개발 환경</h3>
-      <div class="flex flex-col items-center gap-4 sm:flex-row">
+      <h3 class="mb-6 text-2xl font-bold">
+        수행 가능한 개발 환경
+      </h3>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <div
           v-for="(data, idx) of devEnvData"
           :key="idx"
@@ -53,10 +54,13 @@ const devEnvData = ref([
       </div>
     </section>
     <section>
-      <h3>프로젝트 문의</h3>
-      <div>xenialsoft@xenialsoft.com</div>
+      <h3 class="mb-6 text-2xl font-bold">
+        프로젝트 문의
+      </h3>
+      <div class="">
+        xenialsoft@xenialsoft.com
+      </div>
     </section>
-    <div class="flex-grow" />
   </div>
 </template>
 
