@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <header>
-    <div class="container mx-auto flex min-h-[100px] items-center px-4">
+  <header class="fixed top-0 w-full">
+    <div class="container mx-auto flex min-h-16 items-center px-8">
       <NuxtLink
         class="text-2xl font-bold"
         to="/"
