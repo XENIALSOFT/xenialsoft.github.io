@@ -80,6 +80,12 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon_dark_2.svg', sizes: 'any' },
       ],
+      meta: [
+        {
+          name: 'google-site-verification',
+          content: 'ZpWz7Uj8qfvXJm-AIoZfVYgcxls8UgDNl_tYmp9AB94'
+        }
+      ]
     },
   },
   /**
