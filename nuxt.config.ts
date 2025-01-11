@@ -82,10 +82,14 @@ export default defineNuxtConfig({
       ],
       meta: [
         {
+          name: 'description',
+          content: '신뢰할 수 있는 서비스와 시스템 통합을 경험해보세요.',
+        },
+        {
           name: 'google-site-verification',
-          content: 'YgeRQv5v5bskHFM8VPk__wIgnbxcZHa1aZv2IcckFZY'
-        }
-      ]
+          content: 'YgeRQv5v5bskHFM8VPk__wIgnbxcZHa1aZv2IcckFZY',
+        },
+      ],
     },
   },
   /**
