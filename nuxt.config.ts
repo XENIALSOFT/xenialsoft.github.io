@@ -82,6 +82,14 @@ export default defineNuxtConfig({
       ],
       meta: [
         {
+          name: 'title',
+          content: '(주)제니얼소프트',
+        },
+        {
+          name: 'description',
+          content: '신뢰할 수 있는 서비스와 시스템 통합을 경험해보세요.',
+        },
+        {
           name: 'description',
           content: '신뢰할 수 있는 서비스와 시스템 통합을 경험해보세요.',
         },
