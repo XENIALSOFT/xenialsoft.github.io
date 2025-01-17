@@ -62,9 +62,6 @@ export default defineNuxtConfig({
    *       // 기타 메타 태그들
    *     ]
    *   },
-   *   css: [
-   *     '~/assets/css/main.css', // 글로벌 CSS 파일
-   *   ],
    *   // 추가 설정 옵션들을 여기에 추가할 수 있습니다.
    * }
    */
