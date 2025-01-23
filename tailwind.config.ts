@@ -4,7 +4,7 @@ import daisyui from 'daisyui';
 
 export default {
   content: [
-    './app/**/*/.{vue,ts}',
+    './app/**/*/*.{vue,ts}',
   ],
   theme: {
     extend: {
