@@ -6,6 +6,10 @@ on:
       - main
   workflow_dispatch:
 
+# 전역 환경 변수 설정: 모든 스텝에서 Node 24 기반 실행을 강제합니다.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +27,7 @@ jobs:
         run: corepack enable
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 10
           run_install: false
