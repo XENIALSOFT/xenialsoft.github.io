@@ -1,3 +1,9 @@
+import process from 'node:process';
+import tailwindcss from '@tailwindcss/vite';
+
+const isDev = process.env.NODE_ENV === 'development';
+const ssr = !!isDev;
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   /**
@@ -14,7 +20,9 @@ export default defineNuxtConfig({
    */
   modules: [
     '@nuxt/eslint',
-    '@nuxtjs/tailwindcss',
+    '@nuxt/icon',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
     '@vueuse/nuxt',
   ],
   /**
@@ -31,7 +39,7 @@ export default defineNuxtConfig({
    * ssr: true, // SSR을 활성화
    * ssr: false, // 클라이언트 사이드 렌더링만 사용
    */
-  ssr: false,
+  ssr,
   /**
    * 개발 도구 설정을 구성합니다.
    * 이 설정을 통해 Nuxt 애플리케이션의 개발 환경에서 유용한 도구와
@@ -75,7 +83,10 @@ export default defineNuxtConfig({
       title: '(주)제니얼소프트 | XENIALSOFT Inc.',
       viewport: 'width=device-width,initial-scale=1',
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon_dark_2.svg', sizes: 'any' },
+        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap' },
       ],
       meta: [
         {
@@ -91,6 +102,10 @@ export default defineNuxtConfig({
           content: 'YgeRQv5v5bskHFM8VPk__wIgnbxcZHa1aZv2IcckFZY',
         },
       ],
+    },
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
     },
   },
   /**
@@ -121,7 +136,9 @@ export default defineNuxtConfig({
    *   // 추가로 사용할 미래 기능들을 여기에 추가할 수 있습니다.
    * }
    */
-  future: { compatibilityVersion: 4 },
+  future: {
+
+  },
   /**
    * 애플리케이션의 호환 날짜를 설정합니다.
    * 이 날짜는 Nuxt의 이전 버전과의 하위 호환성을
@@ -130,7 +147,7 @@ export default defineNuxtConfig({
    *
    * 형식: 'YYYY-MM-DD'
    */
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2026-05-06',
   /**
    * Nitro 설정을 구성합니다.
    * Nitro는 Nuxt의 서버 엔진으로, 서버 사이드 렌더링(SSR), 정적 사이트 생성(SSG) 및 서버리스 배포를
@@ -150,6 +167,14 @@ export default defineNuxtConfig({
       },
     },
     preset: 'github-pages',
+  },
+  /**
+   * Vite 설정을 구성합니다.
+   */
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
   },
   /**
    * ESLint 설정을 구성합니다.
@@ -172,5 +197,17 @@ export default defineNuxtConfig({
         sortConfigKeys: true,
       },
     },
+  },
+  icon: {
+    componentName: 'NuxtIcon',
+  },
+  robots: {
+    allow: [
+      '/',
+      '/*',
+    ],
+    sitemap: [
+      '/sitemap.xml',
+    ],
   },
 });
