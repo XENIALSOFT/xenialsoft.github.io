@@ -16,7 +16,7 @@ const isDark = computed({
 
 <template>
   <header class="bg-base-100/90 text-base-content sticky top-0 z-30 flex h-16 w-full transform-[translate3d(0,0,0)] justify-center backdrop-blur transition-shadow duration-100 shadow-xs">
-    <nav class="container mx-auto navbar">
+    <nav class="container mx-auto navbar px-4">
       <div class="navbar-start">
         <NuxtLink
           class="text-lg sm:text-2xl font-bold"
