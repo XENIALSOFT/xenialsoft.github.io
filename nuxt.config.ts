@@ -121,6 +121,21 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
   ],
   /**
+   * Nuxt SEO 및 Sitemap 모듈을 위한 사이트 메타데이터 설정입니다.
+   * 사이트맵 생성, 메타 태그 최적화 및 검색 엔진 색인 시 사용되는
+   * 기본 URL과 사이트 이름을 정의합니다.
+   */
+  site: {
+    url: 'https://xenialsoft.com',
+    name: '주식회사 제니얼소프트',
+  },
+  /**
+   * 전역 소스맵 설정입니다.
+   * 개발 단계에서의 디버깅 편의성과 배포 환경에서의 보안/성능 간의
+   * 균형을 위해 설정하며, 여기서는 모든 환경의 소스맵 생성을 비활성화합니다.
+   */
+  sourcemap: false,
+  /**
    * 미래 기능 설정을 구성합니다.
    * 이 설정을 통해 Nuxt의 미래 릴리스에서 도입될 새로운 기능들을
    * 미리 사용할 수 있습니다. 일반적으로 실험적인 기능이나
@@ -166,11 +181,16 @@ export default defineNuxtConfig({
   },
   /**
    * Vite 설정을 구성합니다.
+   * Vite는 차세대 프런트엔드 빌드 도구로, Nuxt의 빌드 및 개발 환경을 담당합니다.
+   * 플러그인 추가, 빌드 최적화 및 CSS 전처리 설정을 여기서 관리합니다.
    */
   vite: {
     plugins: [
       tailwindcss(),
     ],
+    build: {
+      sourcemap: false,
+    },
   },
   /**
    * ESLint 설정을 구성합니다.
@@ -205,5 +225,8 @@ export default defineNuxtConfig({
     sitemap: [
       '/sitemap.xml',
     ],
+  },
+  sitemap: {
+    zeroRuntime: true,
   },
 });
