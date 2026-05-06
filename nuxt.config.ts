@@ -1,8 +1,4 @@
-import process from 'node:process';
 import tailwindcss from '@tailwindcss/vite';
-
-const isDev = process.env.NODE_ENV === 'development';
-const ssr = !!isDev;
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -39,7 +35,7 @@ export default defineNuxtConfig({
    * ssr: true, // SSR을 활성화
    * ssr: false, // 클라이언트 사이드 렌더링만 사용
    */
-  ssr,
+  ssr: false,
   /**
    * 개발 도구 설정을 구성합니다.
    * 이 설정을 통해 Nuxt 애플리케이션의 개발 환경에서 유용한 도구와
