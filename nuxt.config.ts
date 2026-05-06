@@ -126,7 +126,7 @@ export default defineNuxtConfig({
    * 기본 URL과 사이트 이름을 정의합니다.
    */
   site: {
-    url: 'https://xenialsoft.com',
+    url: 'https://xenialsoft.github.io',
     name: '주식회사 제니얼소프트',
   },
   /**
