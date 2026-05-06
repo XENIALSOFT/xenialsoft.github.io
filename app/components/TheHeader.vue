@@ -19,7 +19,7 @@ const isDark = computed({
     <nav class="container mx-auto navbar">
       <div class="navbar-start">
         <NuxtLink
-          class="text-2xl font-bold"
+          class="text-lg sm:text-2xl font-bold"
           to="/"
         >
           XENIAL<span class="text-secondary">SOFT</span>
