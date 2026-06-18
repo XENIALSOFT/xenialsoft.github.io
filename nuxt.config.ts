@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/icon',
+    '@nuxt/scripts',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     '@vueuse/nuxt',
@@ -91,11 +92,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'description',
-          content: '신뢰할 수 있는 서비스와 시스템 통합을 경험해보세요.',
-        },
-        {
-          name: 'google-site-verification',
-          content: 'YgeRQv5v5bskHFM8VPk__wIgnbxcZHa1aZv2IcckFZY',
+          content: '최적의 기술력과 풍부한 프로젝트 경험으로 기업의 성장을 돕는 맞춤형 디지털 인프라를 구축합니다. 웹 서비스부터 복잡한 시스템 통합까지, 제니얼소프트가 함께합니다.',
         },
       ],
     },
@@ -225,6 +222,14 @@ export default defineNuxtConfig({
     sitemap: [
       '/sitemap.xml',
     ],
+  },
+  scripts: {
+    registry: {
+      googleTagManager: {
+        id: 'GTM-K7GDPL4J',
+        trigger: 'onNuxtReady',
+      },
+    },
   },
   sitemap: {
     zeroRuntime: true,

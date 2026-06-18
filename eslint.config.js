@@ -3,7 +3,21 @@ import nuxt from './.nuxt/eslint.config.mjs';
 
 export default nuxt(
   antfu({
-    formatters: true,
+    vue: true,
+    typescript: true,
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      '**/*.d.ts',
+      '.nuxt/**',
+      '.output/**',
+      '.nitro/**',
+      '.cache/**',
+      '.data/**',
+      '.turbo/**',
+      'public/**',
+      '**/*.log',
+    ],
     stylistic: {
       indent: 2, // 4, or 'tab'
       quotes: 'single', // or 'double'
