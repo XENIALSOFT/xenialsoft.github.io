@@ -1,5 +1,5 @@
 import type { ContactPageData } from '~/types/site'
-import { currentVertical, siteKeywords } from '~/data/seo'
+import { businessHours, currentVertical, siteKeywords } from '~/data/seo'
 
 export const contactPage: ContactPageData = {
   seo: {
@@ -17,7 +17,7 @@ export const contactPage: ContactPageData = {
   description: `${currentVertical.label} 도입·견적·데모 계정 요청은 이메일로 보내 주세요. 업종과 요구사항을 알려 주시면 맞춤 안내를 드립니다.`,
   email: {
     title: '연락하기',
-    description: '아래 주소로 메일을 보내 주시면 영업일 기준으로 회신합니다.',
+    description: `아래 주소로 메일을 보내 주시면 ${businessHours.label}에 회신합니다.`,
     address: 'xenialsoft@xenialsoft.com',
     icon: 'i-lucide-mail',
   },

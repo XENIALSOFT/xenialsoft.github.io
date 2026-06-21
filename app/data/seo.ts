@@ -46,3 +46,29 @@ export const organizationKnowsAbout = [
 
 export const defaultSeoDescription =
   `${currentVertical.description}. 예약·회원·홍보·문의까지 한 지점 운영에 맞게 구축합니다. 다른 업종 템플릿은 순차 확대 예정입니다.`
+
+/** Starter 플랜 JSON-LD Offer (SoftwareApplication·Product 공통) */
+export const starterOfferSchema = {
+  '@type': 'Offer' as const,
+  price: '3500000',
+  priceCurrency: 'KRW',
+  description: 'Starter 플랜 초기 구축 (VAT 별도)',
+  url: `${siteBrand.url}/pricing`,
+}
+
+/** 평일 영업·상담 가능 시간 (오전 10시–오후 5시) */
+export const businessHours = {
+  label: '평일 10:00–17:00',
+  specification: {
+    '@type': 'OpeningHoursSpecification' as const,
+    dayOfWeek: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+    ] as const,
+    opens: '10:00:00',
+    closes: '17:00:00',
+  },
+} as const

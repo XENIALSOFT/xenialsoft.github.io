@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { currentVertical, defaultSeoDescription, organizationKnowsAbout, siteBrand } from './app/data/seo'
+import {
+  businessHours,
+  currentVertical,
+  defaultSeoDescription,
+  organizationKnowsAbout,
+  siteBrand,
+  starterOfferSchema,
+} from './app/data/seo'
 
 export default defineNuxtConfig({
   modules: [
@@ -109,13 +116,23 @@ export default defineNuxtConfig({
         '@type': 'Country',
         name: 'South Korea',
       },
+      openingHoursSpecification: [businessHours.specification],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        email: siteBrand.email,
+        availableLanguage: ['Korean'],
+        areaServed: 'KR',
+        hoursAvailable: businessHours.specification,
+      },
       makesOffer: {
-        '@type': 'Offer',
+        ...starterOfferSchema,
         itemOffered: {
           '@type': 'SoftwareApplication',
           name: `제니얼 홈페이지·관리자 대시보드 (${currentVertical.label})`,
           applicationCategory: 'BusinessApplication',
           operatingSystem: 'Web',
+          offers: starterOfferSchema,
         },
       },
     },

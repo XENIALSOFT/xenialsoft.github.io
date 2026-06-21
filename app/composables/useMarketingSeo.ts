@@ -1,5 +1,5 @@
 import type { FaqSeoItem, MarketingSeoSchema, PageSeo, ProductSeoItem } from '~/types/site'
-import { currentVertical, siteBrand, siteKeywords } from '~/data/seo'
+import { businessHours, currentVertical, siteBrand, siteKeywords, starterOfferSchema } from '~/data/seo'
 
 interface MarketingSeoOptions extends PageSeo {
   /** 홈 등 전역 titleTemplate 없이 전체 title을 쓸 때 */
@@ -69,13 +69,7 @@ function buildPageSchema(options: MarketingSeoOptions, pageUrl: string, path: st
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       description: `${currentVertical.label}용 고객 홈페이지와 관리자 대시보드 1:1 연동 세트`,
-      offers: {
-        '@type': 'Offer',
-        price: '3500000',
-        priceCurrency: 'KRW',
-        description: 'Starter 플랜 초기 구축 (VAT 별도)',
-        url: `${siteBrand.url}/pricing`,
-      },
+      offers: starterOfferSchema,
       provider: {
         '@type': 'Organization',
         name: siteBrand.name,
@@ -154,6 +148,7 @@ function buildPageSchema(options: MarketingSeoOptions, pageUrl: string, path: st
       email: siteBrand.email,
       availableLanguage: ['Korean'],
       areaServed: 'KR',
+      hoursAvailable: businessHours.specification,
     })
   }
 
