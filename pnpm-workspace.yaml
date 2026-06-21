@@ -1,6 +1,8 @@
 shellEmulator: true
 
 trustPolicy: no-downgrade
+# Older releases often lack provenance; ignore policy for packages older than 1 year.
+trustPolicyIgnoreAfter: 525600
 
 allowBuilds:
   '@parcel/watcher': true

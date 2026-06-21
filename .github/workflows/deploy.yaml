@@ -9,6 +9,7 @@ on:
 # 전역 환경 변수 설정: 모든 스텝에서 Node 24 기반 실행을 강제합니다.
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  NODE_OPTIONS: --max-old-space-size=4096
 
 jobs:
   build:
