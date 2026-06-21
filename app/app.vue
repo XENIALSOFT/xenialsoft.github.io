@@ -1,59 +1,49 @@
 <script setup lang="ts">
+import { defaultSeoDescription, siteBrand } from '~/data/seo'
+
+const colorMode = useColorMode()
+
+const color = computed(() => colorMode.value === 'dark' ? '#0f172a' : '#ffffff')
+
+useHead({
+  meta: [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { key: 'theme-color', name: 'theme-color', content: color },
+  ],
+  link: [
+    { rel: 'icon', href: '/favicon.ico' },
+  ],
+  htmlAttrs: {
+    lang: 'ko',
+  },
+})
+
 useSeoMeta({
-  ogTitle: '(주)제니얼소프트',
-  ogDescription: '최적의 기술력과 풍부한 프로젝트 경험으로 기업의 성장을 돕는 맞춤형 디지털 인프라를 구축합니다. 웹 서비스부터 복잡한 시스템 통합까지, 제니얼소프트가 함께합니다.',
-  ogImage: 'https://xenialsoft.com/logo_light.png',
-});
+  titleTemplate: '%s · 제니얼소프트',
+})
+
+useSchemaOrg([
+  defineWebSite({
+    '@id': `${siteBrand.url}/#website`,
+    name: siteBrand.name,
+    alternateName: [siteBrand.shortName, siteBrand.alternateName],
+    description: defaultSeoDescription,
+    inLanguage: siteBrand.language,
+    url: siteBrand.url,
+    publisher: {
+      '@id': `${siteBrand.url}/#identity`,
+    },
+  }),
+])
 </script>
 
 <template>
-  <NuxtRouteAnnouncer />
-  <NuxtLoadingIndicator />
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <UApp>
+    <NuxtLoadingIndicator />
+
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </UApp>
 </template>
-
-<style>
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 20ms;
-}
-
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-}
-
-.page-enter-active {
-  animation-duration: 150ms;
-  animation-name: fadeIn;
-  animation-timing-function: linear;
-  backface-visibility: hidden;
-}
-
-.page-leave-active {
-  animation-name: fadeOut;
-  animation-duration: 150ms;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0.001;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.001;
-  }
-}
-</style>

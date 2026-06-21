@@ -1,0 +1,91 @@
+# Block Agent, Tab, @-mention, and semantic search access.
+# Aligns with .gitignore; adds explicit security patterns.
+
+# --- Security ---
+.env
+.env.*
+**/.env
+**/.env.*
+**/credentials.json
+**/secrets.json
+**/*.pem
+**/*.key
+
+# --- Dependencies ---
+node_modules/
+.pnp
+.pnp.js
+
+# --- Build outputs & caches ---
+dist/
+dist-ssr/
+.turbo/
+.temp/
+.cache/
+.nuxt/
+.output/
+.nitro/
+.vercel_build_output/
+.build-*/
+.netlify/
+.data/
+
+# --- Test & coverage artifacts ---
+coverage/
+reports/
+.nyc_output/
+*.lcov
+/cypress/videos/
+/cypress/screenshots/
+__screenshots__/
+
+# --- Logs (repo/app roots only) ---
+/logs/
+*.log*
+
+# --- Generated / local-only files ---
+.eslintcache
+*.tsbuildinfo
+components.d.ts
+stats.html
+*.timestamp-*-*.mjs
+vite.config.mts.timestamp*
+*.timestamp-*
+
+# --- VitePress ---
+**/.vitepress/dist/
+**/.vitepress/cache/
+**/.vitepress/temp/
+
+# --- Archives & temp ---
+*.tgz
+.tmp/
+
+# --- Lock files (never useful for codegen) ---
+pnpm-lock.yaml
+
+# --- Rarely-used apps ---
+apps/playground/
+
+# --- Binary / static assets ---
+**/*.ico
+**/*.woff
+**/*.woff2
+**/*.ttf
+**/*.eot
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.webp
+**/*.svg
+# robots.txt 등 소형 텍스트는 유지하려면 위 이미지 줄만 쓰고 이 줄은 생략
+
+# --- Local-only ---
+TODO.md
+
+# --- IDE / OS ---
+.idea/
+*.iml
+.DS_Store
+

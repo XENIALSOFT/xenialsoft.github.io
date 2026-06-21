@@ -1,13 +1,11 @@
 <template>
-  <div class="flex flex-col min-h-screen">
-    <TheHeader />
-    <main class="flex flex-col grow">
+  <div>
+    <AppHeader />
+
+    <UMain>
       <slot />
-    </main>
-    <TheFooter />
+    </UMain>
+
+    <AppFooter />
   </div>
 </template>
-
-<style lang="css" scoped>
-
-</style>

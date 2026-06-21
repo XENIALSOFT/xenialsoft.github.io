@@ -1,228 +1,126 @@
-import tailwindcss from '@tailwindcss/vite';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { currentVertical, defaultSeoDescription, organizationKnowsAbout, siteBrand } from './app/data/seo'
+
 export default defineNuxtConfig({
-  /**
-   * Nuxt 모듈을 설정합니다.
-   * 이 배열에 포함된 모듈은 Nuxt 애플리케이션의 빌드, 실행 및
-   * 개발 과정에서 사용됩니다. 각 모듈은 특정 기능을 제공하거나
-   * Nuxt 애플리케이션을 확장하는 데 사용됩니다.
-   *
-   * 예시:
-   * modules: [
-   *   '@nuxtjs/axios', // Axios 모듈을 사용하여 HTTP 요청을 쉽게 관리
-   *   '@nuxtjs/auth',  // 인증 모듈을 사용하여 사용자 인증을 처리
-   * ]
-   */
   modules: [
     '@nuxt/eslint',
-    '@nuxt/icon',
+    '@nuxt/image',
+    '@nuxt/ui',
+    '@nuxtjs/seo',
     '@nuxt/scripts',
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
     '@vueuse/nuxt',
   ],
-  /**
-   * 서버 사이드 렌더링(SSR)을 활성화하거나 비활성화합니다.
-   * 이 설정은 Nuxt 애플리케이션이 서버에서 렌더링되어
-   * 클라이언트에 HTML을 제공할지, 또는 클라이언트 사이드에서만
-   * 렌더링될지를 결정합니다.
-   *
-   * `true`로 설정하면 SSR이 활성화되어 SEO와 초기 로딩 시간에
-   * 유리합니다. `false`로 설정하면 클라이언트 사이드 렌더링만
-   * 사용하게 됩니다.
-   *
-   * 예시:
-   * ssr: true, // SSR을 활성화
-   * ssr: false, // 클라이언트 사이드 렌더링만 사용
-   */
-  ssr: false,
-  /**
-   * 개발 도구 설정을 구성합니다.
-   * 이 설정을 통해 Nuxt 애플리케이션의 개발 환경에서 유용한 도구와
-   * 기능들을 활성화할 수 있습니다. 예를 들어, 디버깅 도구나 개발
-   * 편의성을 높이는 플러그인들을 포함할 수 있습니다.
-   *
-   * 예시:
-   * devtools: {
-   *   enabled: true, // 개발 도구를 활성화
-   *   // 추가 설정 옵션들을 여기에 추가할 수 있습니다.
-   * }
-   */
-  devtools: { enabled: true },
-  /**
-   * 애플리케이션 설정을 구성합니다.
-   * 이 설정을 통해 Nuxt 애플리케이션의 전반적인 동작과
-   * 관련된 다양한 옵션들을 정의할 수 있습니다.
-   * 예를 들어, 페이지 제목, 메타데이터, 로고, CSS 파일 등을
-   * 설정할 수 있습니다.
-   *
-   * 예시:
-   * app: {
-   *   head: {
-   *     title: 'My Nuxt App', // 애플리케이션의 기본 제목
-   *     meta: [
-   *       { charset: 'utf-8' },
-   *       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-   *       // 기타 메타 태그들
-   *     ]
-   *   },
-   *   // 추가 설정 옵션들을 여기에 추가할 수 있습니다.
-   * }
-   */
+
+  devtools: {
+    enabled: true,
+  },
+
   app: {
     baseURL: '/',
     head: {
-      charset: 'utf-8',
       htmlAttrs: {
         lang: 'ko',
       },
-      title: '(주)제니얼소프트 | XENIALSOFT Inc.',
-      viewport: 'width=device-width,initial-scale=1',
-      link: [
-        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap' },
-      ],
       meta: [
         {
-          name: 'title',
-          content: '(주)제니얼소프트',
+          name: 'google-site-verification',
+          content: 'YgeRQv5v5bskHFM8VPk__wIgnbxcZHa1aZv2IcckFZY',
         },
+      ],
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
-          name: 'description',
-          content: '최적의 기술력과 풍부한 프로젝트 경험으로 기업의 성장을 돕는 맞춤형 디지털 인프라를 구축합니다. 웹 서비스부터 복잡한 시스템 통합까지, 제니얼소프트가 함께합니다.',
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap',
         },
       ],
     },
-    pageTransition: {
-      name: 'page',
-      mode: 'out-in',
-    },
   },
-  /**
-   * 글로벌 CSS 파일 및 CSS 라이브러리를 설정합니다.
-   * 이 설정을 통해 애플리케이션 전체에서 사용될 CSS 파일이나
-   * CSS 라이브러리를 지정할 수 있습니다. 지정된 CSS 파일은
-   * 모든 페이지에 자동으로 포함됩니다.
-   *
-   * 예시:
-   * css: [
-   *   '~/assets/css/main.css', // 글로벌 CSS 파일
-   *   'vuetify/dist/vuetify.min.css', // 외부 CSS 라이브러리
-   *   // 추가 CSS 파일들을 여기에 추가할 수 있습니다.
-   * ]
-   */
-  css: [
-    '~/assets/css/main.css',
-  ],
-  /**
-   * Nuxt SEO 및 Sitemap 모듈을 위한 사이트 메타데이터 설정입니다.
-   * 사이트맵 생성, 메타 태그 최적화 및 검색 엔진 색인 시 사용되는
-   * 기본 URL과 사이트 이름을 정의합니다.
-   */
-  site: {
-    url: 'https://xenialsoft.github.io',
-    name: '주식회사 제니얼소프트',
-  },
-  /**
-   * 전역 소스맵 설정입니다.
-   * 개발 단계에서의 디버깅 편의성과 배포 환경에서의 보안/성능 간의
-   * 균형을 위해 설정하며, 여기서는 모든 환경의 소스맵 생성을 비활성화합니다.
-   */
-  sourcemap: false,
-  /**
-   * 미래 기능 설정을 구성합니다.
-   * 이 설정을 통해 Nuxt의 미래 릴리스에서 도입될 새로운 기능들을
-   * 미리 사용할 수 있습니다. 일반적으로 실험적인 기능이나
-   * 향후 표준이 될 기능들이 포함됩니다.
-   *
-   * 예시:
-   * future: {
-   *   compatibilityVersion: 4, // Nuxt 4 사용을 활성화
-   *   // 추가로 사용할 미래 기능들을 여기에 추가할 수 있습니다.
-   * }
-   */
-  future: {
 
+  css: ['~/assets/css/main.css'],
+
+  site: {
+    url: siteBrand.url,
+    name: siteBrand.name,
+    description: defaultSeoDescription,
+    defaultLocale: 'ko',
   },
-  /**
-   * 애플리케이션의 호환 날짜를 설정합니다.
-   * 이 날짜는 Nuxt의 이전 버전과의 하위 호환성을
-   * 유지하는 데 사용되며, 애플리케이션이 이 날짜
-   * 이전의 기능과 동작에 따라 기대한 대로 동작하도록 보장합니다.
-   *
-   * 형식: 'YYYY-MM-DD'
-   */
+
+  sourcemap: false,
+
   compatibilityDate: '2026-05-06',
-  /**
-   * Nitro 설정을 구성합니다.
-   * Nitro는 Nuxt의 서버 엔진으로, 서버 사이드 렌더링(SSR), 정적 사이트 생성(SSG) 및 서버리스 배포를
-   * 지원하는 경량 고성능 서버를 제공합니다. 이 설정을 통해 Nitro의 동작 방식을
-   * 세부적으로 조정할 수 있습니다.
-   *
-   * 예시:
-   * nitro: {
-   *   preset: 'node-server', // 사용할 프리셋 지정 (예: 'node-server', 'vercel', 'netlify' 등)
-   *   // 추가 설정 옵션들을 여기에 추가할 수 있습니다.
-   * }
-   */
+
   nitro: {
+    preset: 'github-pages',
     esbuild: {
       options: {
         target: 'esnext',
       },
     },
-    preset: 'github-pages',
-  },
-  /**
-   * Vite 설정을 구성합니다.
-   * Vite는 차세대 프런트엔드 빌드 도구로, Nuxt의 빌드 및 개발 환경을 담당합니다.
-   * 플러그인 추가, 빌드 최적화 및 CSS 전처리 설정을 여기서 관리합니다.
-   */
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-    build: {
-      sourcemap: false,
+    prerender: {
+      routes: ['/', '/products', '/pricing', '/contact'],
+      crawlLinks: true,
     },
   },
-  /**
-   * ESLint 설정을 구성합니다.
-   * ESLint는 JavaScript 및 Vue.js 코드의 스타일과 품질을
-   * 분석하고 검사하는 도구입니다. 이 설정을 통해 애플리케이션
-   * 코드의 일관성을 유지하고 잠재적인 오류를 사전에
-   * 방지할 수 있습니다.
-   *
-   * 예시:
-   * eslint: {
-   *   fix: true, // 가능한 경우 자동으로 문제를 수정
-   *   cache: false, // 캐시를 사용하여 검사 속도 향상
-   *   // 추가 ESLint 설정 옵션들을 여기에 추가할 수 있습니다.
-   * }
-   */
+
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@unhead/schema-org/vue',
+      ]
+    }
+  },
+
   eslint: {
     config: {
-      standalone: false,
-      nuxt: {
-        sortConfigKeys: true,
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs',
       },
     },
   },
-  icon: {
-    componentName: 'NuxtIcon',
+
+  linkChecker: {
+    enabled: true,
+    runOnBuild: true,
   },
+
+  ogImage: {
+    enabled: false,
+  },
+
   robots: {
-    allow: [
-      '/',
-      '/*',
-    ],
-    sitemap: [
-      '/sitemap.xml',
-    ],
+    allow: ['/'],
+    sitemap: ['/sitemap.xml'],
   },
+
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: siteBrand.name,
+      alternateName: [siteBrand.shortName, siteBrand.alternateName],
+      url: siteBrand.url,
+      logo: siteBrand.logo,
+      email: siteBrand.email,
+      description: defaultSeoDescription,
+      knowsAbout: [...organizationKnowsAbout],
+      areaServed: {
+        '@type': 'Country',
+        name: 'South Korea',
+      },
+      makesOffer: {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'SoftwareApplication',
+          name: `제니얼 홈페이지·관리자 대시보드 (${currentVertical.label})`,
+          applicationCategory: 'BusinessApplication',
+          operatingSystem: 'Web',
+        },
+      },
+    },
+  },
+
   scripts: {
     registry: {
       googleTagManager: {
@@ -231,7 +129,14 @@ export default defineNuxtConfig({
       },
     },
   },
+
   sitemap: {
     zeroRuntime: true,
+    urls: [
+      { loc: '/', changefreq: 'weekly', priority: 1 },
+      { loc: '/products', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/pricing', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/contact', changefreq: 'yearly', priority: 0.7 },
+    ],
   },
-});
+})

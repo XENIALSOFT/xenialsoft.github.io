@@ -1,28 +1,26 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: "Noto Sans", "Noto Sans KR", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  /* XENIALSOFT brand — #FF1493 (Deep Pink) */
+  --color-xenial-50: #fff0f8;
+  --color-xenial-100: #ffe0f2;
+  --color-xenial-200: #ffc2e6;
+  --color-xenial-300: #ff94d1;
+  --color-xenial-400: #ff5cb8;
+  --color-xenial-500: #ff1493;
+  --color-xenial-600: #e6007a;
+  --color-xenial-700: #c20066;
+  --color-xenial-800: #9e0052;
+  --color-xenial-900: #7a0040;
+  --color-xenial-950: #4a0026;
 }
 
-@layer base {
-  ::selection {
-    @apply bg-secondary text-secondary-content;
-  }
-
-  html, body {
-    @apply scroll-smooth;
-    font-family: "Noto Sans", "Noto Sans KR", -apple-system, BlinkMacSystemFont, system-ui, Roboto, Helvetica Neue, Segoe UI, Apple SD Gothic Neo, Noto Sans KR, Malgun Gothic, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, sans-serif;
-  }
-
-  input:focus, textarea:focus {
-    @apply outline-none;
-  }
-
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
-}
-
-@layer utilities {
-  
+.dark {
+  --ui-bg: var(--ui-color-neutral-950);
+  --ui-bg-muted: var(--ui-color-neutral-900);
+  --ui-bg-elevated: var(--ui-color-neutral-900);
+  --ui-bg-accented: var(--ui-color-neutral-800);
 }
