@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { defaultSeoDescription, siteBrand } from '~/data/seo'
+import { defaultSeoDescription, siteBrand } from '~/data/seo';
 
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 
-const color = computed(() => colorMode.value === 'dark' ? '#0f172a' : '#ffffff')
+const color = computed(() => colorMode.value === 'dark' ? '#0f172a' : '#ffffff');
 
 useHead({
   meta: [
@@ -17,25 +17,25 @@ useHead({
   htmlAttrs: {
     lang: 'ko',
   },
-})
+});
 
 useSeoMeta({
   titleTemplate: '%s · 제니얼소프트',
-})
+});
 
 useSchemaOrg([
   defineWebSite({
     '@id': `${siteBrand.url}/#website`,
-    name: siteBrand.name,
-    alternateName: [siteBrand.shortName, siteBrand.alternateName],
-    description: defaultSeoDescription,
-    inLanguage: siteBrand.language,
-    url: siteBrand.url,
-    publisher: {
+    'name': siteBrand.name,
+    'alternateName': [siteBrand.shortName, siteBrand.alternateName],
+    'description': defaultSeoDescription,
+    'inLanguage': siteBrand.language,
+    'url': siteBrand.url,
+    'publisher': {
       '@id': `${siteBrand.url}/#identity`,
     },
   }),
-])
+]);
 </script>
 
 <template>

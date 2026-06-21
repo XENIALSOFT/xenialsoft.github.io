@@ -1,5 +1,5 @@
-import type { ProductsPageData } from '~/types/site'
-import { currentVertical, siteKeywords } from '~/data/seo'
+import type { ProductsPageData } from '~/types/site';
+import { currentVertical, siteKeywords } from '~/data/seo';
 
 export const productsPage: ProductsPageData = {
   seo: {
@@ -80,4 +80,4 @@ export const productsPage: ProductsPageData = {
       },
     ],
   },
-}
+};

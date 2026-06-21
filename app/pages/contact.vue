@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { contactPage } from '~/data/contact'
+import { contactPage } from '~/data/contact';
 
-const page = contactPage
-const mailto = `mailto:${page.email.address}`
+const page = contactPage;
+const mailto = `mailto:${page.email.address}`;
 
 useMarketingSeo({
   ...page.seo,
   schema: 'contact',
-})
+});
 </script>
 
 <template>

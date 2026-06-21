@@ -1,5 +1,5 @@
-import type { ContactPageData } from '~/types/site'
-import { businessHours, currentVertical, siteKeywords } from '~/data/seo'
+import type { ContactPageData } from '~/types/site';
+import { businessHours, currentVertical, siteKeywords } from '~/data/seo';
 
 export const contactPage: ContactPageData = {
   seo: {
@@ -60,4 +60,4 @@ export const contactPage: ContactPageData = {
       },
     ],
   },
-}
+};

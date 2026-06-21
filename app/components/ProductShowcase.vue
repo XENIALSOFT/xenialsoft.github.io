@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { ProductItem } from '~/types/site'
+import type { ProductItem } from '~/types/site';
 
 defineProps<{
-  product: ProductItem
-}>()
+  product: ProductItem;
+}>();
 </script>
 
 <template>

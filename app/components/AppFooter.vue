@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { currentVertical } from '~/data/seo'
+import { currentVertical } from '~/data/seo';
 
 const columns = [{
   label: '제품',
@@ -24,7 +24,7 @@ const columns = [{
     label: '문의',
     to: '/contact',
   }],
-}]
+}];
 </script>
 
 <template>

@@ -1,5 +1,5 @@
-import type { IndexPageData } from '~/types/site'
-import { currentVertical, defaultSeoDescription, siteKeywords } from '~/data/seo'
+import type { IndexPageData } from '~/types/site';
+import { currentVertical, defaultSeoDescription, siteKeywords } from '~/data/seo';
 
 export const indexPage: IndexPageData = {
   seo: {
@@ -136,4 +136,4 @@ export const indexPage: IndexPageData = {
       },
     ],
   },
-}
+};

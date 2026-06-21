@@ -8,14 +8,14 @@ export const siteBrand = {
   email: 'xenialsoft@xenialsoft.com',
   locale: 'ko_KR',
   language: 'ko-KR',
-} as const
+} as const;
 
-/** 현재 제공 중인 첫 번째 업종 (GTM 초점) */
+/** 현재 제공 중인 첫 번째 업종 */
 export const currentVertical = {
   label: '피부·미용 클리닉',
   shortLabel: '피부·미용',
   description: '피부과·미용 클리닉을 위한 고객 홈페이지와 관리자 대시보드 1세트',
-} as const
+} as const;
 
 export const siteKeywords = [
   '제니얼소프트',
@@ -32,7 +32,7 @@ export const siteKeywords = [
   '의료기관 홈페이지',
   '피부과 마케팅',
   '클리닉 운영 시스템',
-] as const
+] as const;
 
 export const organizationKnowsAbout = [
   '피부과 클리닉',
@@ -42,33 +42,33 @@ export const organizationKnowsAbout = [
   '고객 홈페이지',
   '관리자 대시보드',
   '의료기관 디지털 전환',
-] as const
+] as const;
 
-export const defaultSeoDescription =
-  `${currentVertical.description}. 예약·회원·홍보·문의까지 한 지점 운영에 맞게 구축합니다. 다른 업종 템플릿은 순차 확대 예정입니다.`
+export const defaultSeoDescription
+  = `${currentVertical.description}. 예약·회원·홍보·문의까지 한 지점 운영에 맞게 구축합니다. 다른 업종 템플릿은 순차 확대 예정입니다.`;
 
 /** Starter 플랜 JSON-LD Offer (SoftwareApplication·Product 공통) */
 export const starterOfferSchema = {
   '@type': 'Offer' as const,
-  price: '3500000',
-  priceCurrency: 'KRW',
-  description: 'Starter 플랜 초기 구축 (VAT 별도)',
-  url: `${siteBrand.url}/pricing`,
-}
+  'price': '3500000',
+  'priceCurrency': 'KRW',
+  'description': 'Starter 플랜 초기 구축 (VAT 별도)',
+  'url': `${siteBrand.url}/pricing`,
+};
 
 /** 평일 영업·상담 가능 시간 (오전 10시–오후 5시) */
 export const businessHours = {
   label: '평일 10:00–17:00',
   specification: {
     '@type': 'OpeningHoursSpecification' as const,
-    dayOfWeek: [
+    'dayOfWeek': [
       'Monday',
       'Tuesday',
       'Wednesday',
       'Thursday',
       'Friday',
     ] as const,
-    opens: '10:00:00',
-    closes: '17:00:00',
+    'opens': '10:00:00',
+    'closes': '17:00:00',
   },
-} as const
+} as const;

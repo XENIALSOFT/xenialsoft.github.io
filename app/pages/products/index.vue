@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { productsPage } from '~/data/products'
+import { productsPage } from '~/data/products';
 
-const page = productsPage
+const page = productsPage;
 
 const showcaseItems = computed(() =>
   page.items.filter(item => item.status === 'available'),
-)
+);
 
 const comingSoonItems = computed(() =>
   page.items.filter(item => item.status === 'coming-soon'),
-)
+);
 
 useMarketingSeo({
   ...page.seo,
@@ -20,7 +20,7 @@ useMarketingSeo({
     preview: item.preview,
     status: item.status,
   })),
-})
+});
 </script>
 
 <template>

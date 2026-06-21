@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const route = useRoute()
+const route = useRoute();
 
 const items = computed(() => [{
   label: '제품',
@@ -13,7 +13,7 @@ const items = computed(() => [{
   label: '문의',
   to: '/contact',
   active: route.path.startsWith('/contact'),
-}])
+}]);
 </script>
 
 <template>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { indexPage } from '~/data/index'
+import { indexPage } from '~/data/index';
 
-const page = indexPage
+const page = indexPage;
 
 useMarketingSeo({
   ...page.seo,
   titleTemplate: '',
   schema: 'home',
-})
+});
 </script>
 
 <template>
