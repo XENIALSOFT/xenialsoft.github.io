@@ -38,7 +38,7 @@ export const pricingPage: PricingPageData = {
       {
         title: '4플랜 = 운영 범위 단계',
         description:
-          'Starter·Standard·Business·Enterprise는 관리자에서 쓸 수 있는 기능과 직원 계정 수만 다릅니다. 고객이 보는 홈페이지는 플랜과 관계없이 같습니다.',
+          'Starter·Standard·Business·Enterprise는 관리자에서 직원이 직접 수정·운영할 수 있는 메뉴와 직원 계정 수만 다릅니다. 고객이 보는 홈페이지 화면·기능(예약·회원·다국어 등)은 플랜과 관계없이 동일합니다. 플랜에 없는 Admin 메뉴는 직원이 콘솔에서 바꿀 수 없으며, 구축 시 1회 세팅 이후 변경은 건별 유지보수로 요청할 수 있습니다.',
         icon: 'i-lucide-key-round',
       },
       {
@@ -92,6 +92,7 @@ export const pricingPage: PricingPageData = {
         `관리자 ${formatPlanAdminAccounts('starter')}`,
         '대시보드·예약·회원·파일',
         '구축 시 샘플 콘텐츠 1회 세팅',
+        '시술·병원 안내·마케팅·사이트 설정 등은 구축 후 Admin에서 직접 수정 불가 (변경은 건별 유지보수)',
         '구축 완료 후 사용 교육',
       ],
     },
@@ -106,10 +107,11 @@ export const pricingPage: PricingPageData = {
         to: '/contact',
       },
       features: [
-        'Starter + 일상 운영 관리',
-        '시술·병원안내·상담·문의',
-        '기본정보·검색 노출·영업시간',
+        'Starter + 1지점 일상 운영',
+        '시술·병원 안내·고객센터(FAQ·상담·1:1 문의)',
+        '사이트 기본정보·SEO·영업시간·소셜 링크 · 오시는 길·주차 안내 콘텐츠',
         `관리자 ${formatPlanAdminAccounts('standard')}`,
+        '이벤트·다국어·마케팅 연동이 필요하면 Business',
         '대부분 1지점 클리닉 추천',
       ],
     },
@@ -124,11 +126,12 @@ export const pricingPage: PricingPageData = {
         variant: 'subtle',
       },
       features: [
-        'Standard + 홍보·다국어·연동',
-        '이벤트·뉴스·팝업·전후사진',
-        '마케팅 분석·소셜 로그인·접근 기록',
+        'Standard + 마케팅·콘텐츠·다국어·연동·보안 기록',
+        '이벤트·이벤트 참여·뉴스·언론보도·팝업·전후사진·멤버십·카드사 혜택',
+        '연동 설정(지도 API·Google Tag Manager·소셜 로그인 토글)·장바구니 설정',
+        '다국어 관리·SSL 상태 확인·개인정보 접근 기록',
         `관리자 ${formatPlanAdminAccounts('business')}`,
-        '관리자 기능 전체 포함',
+        '계약 플랜 기준 Admin 기능 전체',
       ],
     },
     {
@@ -154,7 +157,7 @@ export const pricingPage: PricingPageData = {
     description:
       '동일 홈페이지·동일 고객 화면 위에서, 관리자 메뉴에서 직원이 직접 다룰 수 있는 범위만 플랜마다 다릅니다.',
     note:
-      '데모(admin.xenialsoft.com)는 체험용으로 관리자 전 기능이 열려 있습니다. 계약하신 플랜의 운영 범위는 아래 표의 해당 열을 기준으로 하세요.',
+      '데모(admin.xenialsoft.com)는 체험용으로 관리자 전 기능이 열려 있습니다. 계약하신 플랜의 운영 범위는 아래 표의 해당 열을 기준으로 하세요. 고객 홈페이지에 노출되는 기능(예약·다국어 화면 등)은 표와 관계없이 동일하며, 표는 직원이 Admin에서 편집할 수 있는지만 나타냅니다.',
     groups: planFeatureComparison,
   },
   maintenance: {
@@ -192,12 +195,12 @@ export const pricingPage: PricingPageData = {
       {
         label: '4플랜이면 홈페이지도 4종인가요?',
         content:
-          '아닙니다. 현재는 피부·미용 클리닉용 홈페이지·관리자 1세트가 모든 플랜에 동일하게 설치됩니다. Starter·Standard·Business·Enterprise는 직원이 관리자에서 쓸 수 있는 기능·계정 수 단계이며, 고객이 보는 홈페이지는 플랜과 관계없이 같습니다.',
+          '아닙니다. 현재는 피부·미용 클리닉용 홈페이지·관리자 1세트가 모든 플랜에 동일하게 설치됩니다. Starter·Standard·Business·Enterprise는 직원이 관리자에서 쓸 수 있는 기능·계정 수 단계이며, 고객이 보는 홈페이지는 플랜과 관계없이 같습니다. 다만 Starter는 Admin에서 시술·병원 안내 등 대부분 콘텐츠를 직접 수정할 수 없습니다.',
       },
       {
         label: 'Standard는 어떤 고객에게 맞나요?',
         content:
-          `예약·회원(Starter)에 더해, 시술·병원 안내·상담·문의를 직원이 직접 관리하려는 1지점 클리닉에 맞습니다(${standard.amount}, 관리자 ${formatPlanAdminAccounts('standard')}). 이벤트·다국어·마케팅 연동까지 필요하면 Business를 선택하세요.`,
+          `예약·회원(Starter)에 더해, 시술 메뉴·병원 안내·FAQ·상담·1:1 문의·오시는 길·사이트 기본정보를 직원이 직접 관리하려는 1지점 클리닉에 맞습니다(${standard.amount}, 관리자 ${formatPlanAdminAccounts('standard')}). 이벤트·전후사진·다국어·지도 API·GTM·접근 기록까지 필요하면 Business를 선택하세요.`,
       },
       {
         label: '월 구독료가 있나요?',
@@ -208,6 +211,11 @@ export const pricingPage: PricingPageData = {
         label: '데모와 실제 납품 범위가 다른가요?',
         content:
           '데모는 체험용으로 관리자 전 기능이 열려 있습니다. 계약하신 플랜의 운영 범위는 요금 페이지 비교표의 해당 열을 기준으로 하세요.',
+      },
+      {
+        label: '오시는 길과 지도 연동은 플랜마다 다른가요?',
+        content:
+          '오시는 길·주차 안내 문구는 Standard 이상에서 관리자로 수정할 수 있습니다. 카카오·네이버 지도 API 키, Google Tag Manager, 소셜 로그인 연동은 Business 이상의 연동 설정 메뉴에서 다룹니다. Starter는 구축 시 1회 세팅된 안내를 그대로 쓰고, Admin에서 직접 바꿀 수 없습니다.',
       },
       {
         label: '서버는 누가 준비하나요?',

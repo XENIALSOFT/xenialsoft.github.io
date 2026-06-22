@@ -47,7 +47,7 @@ export const planPricing = {
   starter: {
     id: 'starter' as const,
     title: 'Starter',
-    description: '예약·회원 중심, 구축 시 1회 세팅',
+    description: '예약·회원만 직원 운영, 나머지는 구축 1회 세팅',
     amount: '₩3,500,000',
     amountNumeric: 3_500_000,
     suffix: '초기 구축',
@@ -207,7 +207,21 @@ export const planFeatureComparison: PlanFeatureComparisonGroup[] = [
     title: '마케팅·콘텐츠',
     rows: [
       {
-        label: '이벤트·새소식·언론보도·팝업·전후사진·멤버십',
+        label: '이벤트·새소식·언론보도·팝업·전후사진',
+        starter: 'excluded',
+        standard: 'excluded',
+        business: 'included',
+        enterprise: 'included',
+      },
+      {
+        label: '멤버십·카드사 혜택',
+        starter: 'excluded',
+        standard: 'excluded',
+        business: 'included',
+        enterprise: 'included',
+      },
+      {
+        label: '이벤트 참여·응모 관리',
         starter: 'excluded',
         standard: 'excluded',
         business: 'included',
@@ -226,7 +240,7 @@ export const planFeatureComparison: PlanFeatureComparisonGroup[] = [
     title: '병원 안내·고지',
     rows: [
       {
-        label: '의료진·공지·약관·비급여·제증명·오시는 길·시설',
+        label: '의료진·공지·약관·비급여·제증명·오시는 길(주차 안내 등)·시설',
         starter: 'excluded',
         standard: 'included',
         business: 'included',
@@ -250,14 +264,21 @@ export const planFeatureComparison: PlanFeatureComparisonGroup[] = [
     title: '사이트 설정',
     rows: [
       {
-        label: '기본정보·검색 노출·영업시간·소셜 링크',
+        label: '기본정보·SEO(검색 노출)·영업시간·소셜 링크',
         starter: 'excluded',
         standard: 'included',
         business: 'included',
         enterprise: 'included',
       },
       {
-        label: '마케팅 분석·소셜 로그인·지도·장바구니 설정',
+        label: '연동 설정(지도 API·Google Tag Manager·소셜 로그인)',
+        starter: 'excluded',
+        standard: 'excluded',
+        business: 'included',
+        enterprise: 'included',
+      },
+      {
+        label: '장바구니 설정',
         starter: 'excluded',
         standard: 'excluded',
         business: 'included',
@@ -271,7 +292,7 @@ export const planFeatureComparison: PlanFeatureComparisonGroup[] = [
         enterprise: 'included',
       },
       {
-        label: '보안 인증서(SSL) 상태 확인',
+        label: 'SSL 인증서 상태 확인',
         starter: 'excluded',
         standard: 'excluded',
         business: 'included',
