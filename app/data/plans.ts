@@ -83,13 +83,13 @@ export const planPricing = {
   enterprise: {
     id: 'enterprise' as const,
     title: 'Enterprise',
-    description: '맞춤 기능·보안·운영 협약',
+    description: '맞춤 기능·계정·보안 요건 (별도 협의)',
     amount: '별도 협의',
     amountNumeric: null,
     suffix: '초기 구축',
     maxAdminAccounts: null,
     licenseFeatures: null,
-    offerDescription: '맞춤 기능·계정·운영 협약',
+    offerDescription: '맞춤 기능·계정·보안 요건 (별도 협의)',
     recommended: false,
   },
 } as const;
@@ -280,7 +280,7 @@ export const planFeatureComparison: PlanFeatureComparisonGroup[] = [
     ],
   },
   {
-    title: '보안·지원',
+    title: '보안·맞춤',
     rows: [
       {
         label: '개인정보 접근 기록',
@@ -290,14 +290,7 @@ export const planFeatureComparison: PlanFeatureComparisonGroup[] = [
         enterprise: 'included',
       },
       {
-        label: '우선 기술 지원 (건별 유지보수)',
-        starter: 'excluded',
-        standard: 'excluded',
-        business: 'included',
-        enterprise: 'custom',
-      },
-      {
-        label: '맞춤 기능·도메인·운영 협약',
+        label: '맞춤 기능·도메인 (별도 협의)',
         starter: 'excluded',
         standard: 'excluded',
         business: 'excluded',

@@ -72,7 +72,7 @@ export const pricingPage: PricingPageData = {
       {
         title: '3. 운영·유지보수 (건별)',
         description:
-          '구축 완료 후 월 구독료는 없습니다. 장애 대응, 플랜 업그레이드, 기능 추가 등은 필요할 때 건별로 견적합니다.',
+          '구축 완료 후 월 구독료는 없습니다. 이후 장애 대응·기능 추가·플랜 업그레이드는 이메일로 요청하시면 범위를 확인한 뒤 건별로 견적·일정을 안내합니다.',
       },
     ],
   },
@@ -128,7 +128,7 @@ export const pricingPage: PricingPageData = {
         '이벤트·뉴스·팝업·전후사진',
         '마케팅 분석·소셜 로그인·접근 기록',
         `관리자 ${formatPlanAdminAccounts('business')}`,
-        '우선 기술 지원(건별)',
+        '관리자 기능 전체 포함',
       ],
     },
     {
@@ -143,9 +143,9 @@ export const pricingPage: PricingPageData = {
       },
       features: [
         'Business + 맞춤 기능·계정',
-        '업종·업무 흐름·보안 맞춤',
-        '허용 도메인·운영 협약',
-        '전담 매니저',
+        '업종·업무 흐름·보안 맞춤 (범위 협의)',
+        '맞춤 도메인·계정 설정',
+        '대규모·특수 요건 별도 견적',
       ],
     },
   ],
@@ -160,24 +160,24 @@ export const pricingPage: PricingPageData = {
   maintenance: {
     title: '유지보수 (건별)',
     description:
-      '월 정기 구독이 없습니다. 요청이 있을 때 작업 범위를 확인한 뒤 건별로 견적합니다.',
+      '소규모 팀으로 운영합니다. 전담 매니저·연중무휴·당일 즉시 대응은 제공하지 않습니다. 요청은 이메일로 받으며, 평일 업무 시간에 검토한 뒤 건별로 견적·일정을 안내합니다.',
     items: [
       {
         label: '장애 대응·긴급 패치',
-        description: '운영 장애, 보안 패치 등 긴급 대응. 원격·현장 범위에 따라 건별 견적.',
+        description: '운영 장애·보안 패치 등. 가능한 범위 내 원격 대응이며, 건별 견적·일정 협의 후 진행합니다.',
       },
       {
         label: '기능 추가·화면·콘텐츠 수정',
-        description: '새 기능, 화면 변경, 연동 추가 등 작업. 범위 확인 후 건별 견적.',
+        description: '새 기능, 화면 변경, 연동 추가 등. 범위 확인 후 건별 견적합니다.',
       },
       {
         label: '플랜 업그레이드',
         description:
-          'Starter → Standard → Business 순으로 관리자 운영 범위를 확대할 수 있습니다. 차액·설정 작업은 별도 견적.',
+          'Starter → Standard → Business 순으로 관리자 운영 범위를 확대할 수 있습니다. 차액·설정 작업은 별도 견적합니다.',
       },
       {
         label: '버전 업그레이드',
-        description: '제품 버전 업그레이드·데이터 이전. 환경·규모에 따라 별도 협의.',
+        description: '제품 버전 업그레이드·데이터 이전. 환경·규모에 따라 별도 협의합니다.',
       },
       {
         label: '서버·도메인·SSL',
@@ -233,6 +233,11 @@ export const pricingPage: PricingPageData = {
         label: '플랜을 나중에 올릴 수 있나요?',
         content:
           '가능합니다. Starter → Standard → Business 순으로 관리자 운영 범위와 계정 수를 확대할 수 있습니다. 차액과 설정 작업은 건별 견적합니다.',
+      },
+      {
+        label: '전담 매니저나 연중무휴 지원이 있나요?',
+        content:
+          '없습니다. 소규모 팀으로 운영하며, 전담 매니저·우선 기술 지원·24시간 대응은 제공하지 않습니다. 문의·유지보수는 이메일(xenialsoft@xenialsoft.com)로 받고, 평일 업무 시간에 검토·회신합니다. 구축 완료 후 필요한 작업은 건별로 견적·일정을 협의합니다.',
       },
       {
         label: '도입 절차는 어떻게 되나요?',

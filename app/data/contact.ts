@@ -17,7 +17,7 @@ export const contactPage: ContactPageData = {
   description: `${currentVertical.label} 도입·견적·데모 계정 요청은 이메일로 보내 주세요. 업종과 요구사항을 알려 주시면 맞춤 안내를 드립니다.`,
   email: {
     title: '연락하기',
-    description: `아래 주소로 메일을 보내 주시면 ${businessHours.label}에 회신합니다.`,
+    description: `아래 주소로 메일을 보내 주세요. 소규모 팀으로 ${businessHours.label}에 순차 회신하며, 전담 담당자 배정이나 즉시 응답은 어렵습니다.`,
     address: 'xenialsoft@xenialsoft.com',
     icon: 'i-lucide-mail',
   },
@@ -31,7 +31,7 @@ export const contactPage: ContactPageData = {
       },
       {
         label: '관심 플랜',
-        hint: 'Starter / Business / Enterprise 중 희망 범위',
+        hint: 'Starter / Standard / Business / Enterprise 중 희망 범위',
       },
       {
         label: '필요 기능',
