@@ -23,7 +23,7 @@ export const productsPage: ProductsPageData = {
       badge: '데모 가능',
       status: 'available',
       preview: 'https://alpha.xenialsoft.com',
-      // screenshot: '/products/xenial-homepage.png',
+      screenshot: '/products/xenial-homepage.png',
       features: [
         '홈·시술·서비스 소개 및 카탈로그',
         '간편 예약·온라인 상담',
@@ -40,7 +40,7 @@ export const productsPage: ProductsPageData = {
       status: 'available',
       preview: 'https://admin.xenialsoft.com',
       reverse: true,
-      // screenshot: '/products/admin-dashboard.png',
+      screenshot: '/products/admin-dashboard.png',
       features: [
         '한눈에 보는 대시보드',
         '예약·회원 관리',
