@@ -1,8 +1,9 @@
 /** 사이트 전역 SEO·JSON-LD 상수 */
 export const siteBrand = {
-  name: '주식회사 제니얼소프트',
-  shortName: '제니얼소프트',
-  alternateName: 'XENIALSOFT Inc.',
+  /** 검색 결과 사이트명·WebSite·og:site_name용 공식 브랜드명 */
+  name: '제니얼소프트',
+  legalName: '주식회사 제니얼소프트',
+  alternateNames: ['주식회사 제니얼소프트', '(주)제니얼소프트', 'XENIALSOFT Inc.'],
   url: 'https://xenialsoft.com',
   logo: 'https://xenialsoft.com/logo.png',
   email: 'xenialsoft@xenialsoft.com',

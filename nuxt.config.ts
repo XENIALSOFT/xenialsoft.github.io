@@ -107,7 +107,7 @@ export default defineNuxtConfig({
     identity: {
       type: 'Organization',
       name: siteBrand.name,
-      alternateName: [siteBrand.shortName, siteBrand.alternateName],
+      alternateName: [...siteBrand.alternateNames],
       url: siteBrand.url,
       logo: siteBrand.logo,
       email: siteBrand.email,

@@ -119,7 +119,7 @@ function buildPageSchema(options: MarketingSeoOptions, pageUrl: string, path: st
       'description': `${currentVertical.label}용 고객 서버 설치형 초기 구축 패키지`,
       'brand': {
         '@type': 'Brand',
-        'name': siteBrand.shortName,
+        'name': siteBrand.name,
       },
       'offers': [
         {

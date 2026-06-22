@@ -20,14 +20,14 @@ useHead({
 });
 
 useSeoMeta({
-  titleTemplate: '%s · 제니얼소프트',
+  titleTemplate: `%s · ${siteBrand.name}`,
 });
 
 useSchemaOrg([
   defineWebSite({
     '@id': `${siteBrand.url}/#website`,
     'name': siteBrand.name,
-    'alternateName': [siteBrand.shortName, siteBrand.alternateName],
+    'alternateName': [...siteBrand.alternateNames],
     'description': defaultSeoDescription,
     'inLanguage': siteBrand.language,
     'url': siteBrand.url,
