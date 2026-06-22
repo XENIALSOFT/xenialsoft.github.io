@@ -195,7 +195,6 @@ export function useMarketingSeo(options: MarketingSeoOptions) {
     twitterDescription: options.description,
     twitterCard: 'summary_large_image',
     twitterImage: ogImageUrl,
-    robots: 'index, follow, max-image-preview:large',
   });
 
   useSchemaOrg(buildPageSchema(options, pageUrl, route.path));

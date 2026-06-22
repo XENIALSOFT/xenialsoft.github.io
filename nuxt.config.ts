@@ -4,6 +4,9 @@ import {
   currentVertical,
   defaultSeoDescription,
   organizationKnowsAbout,
+  robotsDisallowPaths,
+  robotsIndexValue,
+  robotsNoIndexRoutes,
   siteBrand,
   starterOfferSchema,
 } from './app/data/seo';
@@ -71,6 +74,10 @@ export default defineNuxtConfig({
     },
   },
 
+  routeRules: {
+    ...robotsNoIndexRoutes,
+  },
+
   vite: {
     optimizeDeps: {
       include: [
@@ -99,8 +106,11 @@ export default defineNuxtConfig({
   },
 
   robots: {
+    credits: false,
+    robotsEnabledValue: robotsIndexValue,
     allow: ['/'],
-    sitemap: ['/sitemap.xml'],
+    disallow: [...robotsDisallowPaths],
+    sitemap: [`${siteBrand.url}/sitemap.xml`],
   },
 
   schemaOrg: {

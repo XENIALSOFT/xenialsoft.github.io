@@ -48,6 +48,26 @@ export const organizationKnowsAbout = [
 export const defaultSeoDescription
   = `${currentVertical.description}. 예약·회원·홍보·문의까지 한 지점 운영에 맞게 구축합니다. 다른 업종 템플릿은 순차 확대 예정입니다.`;
 
+/** indexable 페이지 robots meta (@nuxtjs/seo robotsEnabledValue와 동일) */
+export const robotsIndexValue
+  = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' as const;
+
+/** robots.txt Disallow 경로 (GitHub Pages·Nuxt prerender 산출물) */
+export const robotsDisallowPaths = [
+  '/200.html',
+  '/404.html',
+  '/*/_payload.json',
+  '/__sitemap__/',
+] as const;
+
+/** noindex 적용할 Nuxt routeRules 경로 */
+export const robotsNoIndexRoutes = {
+  '/200.html': { robots: false },
+  '/404.html': { robots: false },
+  '/**/_payload.json': { robots: false },
+  '/__sitemap__/**': { robots: false },
+} as const;
+
 /** Starter 플랜 JSON-LD Offer (SoftwareApplication·Product 공통) */
 export const starterOfferSchema = {
   '@type': 'Offer' as const,
