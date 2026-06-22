@@ -36,6 +36,10 @@ export default defineNuxtConfig({
           name: 'google-site-verification',
           content: 'YgeRQv5v5bskHFM8VPk__wIgnbxcZHa1aZv2IcckFZY',
         },
+        {
+          name: 'naver-site-verification',
+          content: '73764290bae3de7ee03601dc86640f933520d8e5',
+        },
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -57,6 +61,10 @@ export default defineNuxtConfig({
     defaultLocale: 'ko',
   },
 
+  routeRules: {
+    ...robotsNoIndexRoutes,
+  },
+
   sourcemap: false,
 
   compatibilityDate: '2026-05-06',
@@ -72,10 +80,6 @@ export default defineNuxtConfig({
       routes: ['/', '/products', '/pricing', '/contact'],
       crawlLinks: true,
     },
-  },
-
-  routeRules: {
-    ...robotsNoIndexRoutes,
   },
 
   vite: {
