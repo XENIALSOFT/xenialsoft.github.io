@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ChangelogEntry } from '~/types/site';
-import { getChangelogScopeLabel } from '~/data/changelog';
+import { formatChangelogDate, getChangelogScopeLabel } from '~/data/changelog';
 
 defineProps<{
   entries: ChangelogEntry[];
@@ -47,6 +47,10 @@ const versionsUi = {
       :description="entry.summary"
       :ui="versionUi"
     >
+      <template #date>
+        {{ formatChangelogDate(entry.date) }}
+      </template>
+
       <template
         v-if="showScope"
         #title

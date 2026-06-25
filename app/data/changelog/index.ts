@@ -51,6 +51,15 @@ export function getChangelogScopeLabel(scope: ChangelogScope): string {
   return scopeLabels[scope];
 }
 
+/** ISO 날짜(yyyy-MM-dd)를 한국 UI에서 흔한 yyyy.MM.dd 형식으로 표시합니다. */
+export function formatChangelogDate(isoDate: string): string {
+  const [year, month, day] = isoDate.split('-');
+  if (!year || !month || !day) {
+    return isoDate;
+  }
+  return `${year}.${month}.${day}`;
+}
+
 export function sortChangelogEntries(entries: ChangelogEntry[]): ChangelogEntry[] {
   return [...entries].sort((a, b) => b.date.localeCompare(a.date));
 }
