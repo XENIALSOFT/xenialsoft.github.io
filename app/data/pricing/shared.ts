@@ -4,7 +4,7 @@ export const pricingModelSteps: PricingModelStep[] = [
   {
     title: '1. 서버 준비',
     description:
-      '병원에서 서버, 인터넷, 도메인을 준비합니다. 서버·도메인 이용 비용은 병원 부담입니다.',
+      '고객사에서 서버, 인터넷, 도메인을 준비합니다. 서버·도메인 이용 비용은 고객사 부담입니다.',
   },
   {
     title: '2. 초기 구축 (1회)',
@@ -45,7 +45,11 @@ export const pricingMaintenance: {
     },
     {
       label: '서버·도메인',
-      description: '서버 임대, 도메인 갱신 등 이용 비용은 병원에서 직접 부담합니다.',
+      description: '서버 임대, 도메인 갱신 등 이용 비용은 고객사에서 직접 부담합니다.',
+    },
+    {
+      label: '보안·인증서',
+      description: '보안 인증서는 통상 자동 갱신됩니다. 갱신 실패, 도메인·서버 변경, 보안 설정 조정 등이 필요할 때 건별로 협의합니다.',
     },
   ],
 };

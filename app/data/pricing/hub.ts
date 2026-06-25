@@ -63,7 +63,7 @@ export const pricingHubPage: PricingHubPageData = {
   })),
   model: {
     title: '도입 순서',
-    description: '서버는 병원에서 준비하고, 제니얼소프트가 설치·설정·안내를 담당합니다.',
+    description: '서버는 고객사에서 준비하고, 제니얼소프트가 설치·설정·안내를 담당합니다.',
     steps: pricingModelSteps,
   },
   maintenance: pricingMaintenance,
@@ -97,7 +97,7 @@ export const pricingHubPage: PricingHubPageData = {
       {
         label: '서버는 누가 준비하나요?',
         content:
-          '서버, 인터넷, 도메인은 병원에서 준비합니다. 구축 시 제니얼소프트가 제품 설치와 함께 보안 인증서 연동·웹 서버 기본 설정(nginx 등)을 진행합니다.',
+          '서버, 인터넷, 도메인은 고객사에서 준비합니다. 구축 시 제니얼소프트가 제품 설치와 함께 보안 인증서 연동·웹 서버 기본 설정(nginx 등)을 진행합니다.',
       },
       {
         label: '도입 절차는?',

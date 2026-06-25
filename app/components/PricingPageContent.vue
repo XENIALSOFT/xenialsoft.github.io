@@ -106,7 +106,7 @@ defineProps<{
       :title="page.maintenance.title"
       :description="page.maintenance.description"
     >
-      <div class="grid gap-4 max-w-3xl mx-auto sm:grid-cols-2">
+      <div class="grid gap-4 max-w-3xl mx-auto sm:grid-cols-3">
         <UCard
           v-for="(item, index) in page.maintenance.items"
           :key="index"

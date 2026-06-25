@@ -103,21 +103,23 @@ useMarketingSeo({
             />
           </div>
 
-          <div class="mt-auto flex flex-wrap gap-2">
+          <div class="mt-auto flex flex-col gap-2 pt-4 border-t border-default">
             <UButton
               label="자세히 보기"
               :to="product.to"
               trailing-icon="i-lucide-arrow-right"
               color="primary"
+              block
             />
             <UButton
               v-if="product.preview"
-              label="데모"
+              label="데모 보기"
               :to="product.preview"
               target="_blank"
               icon="i-lucide-external-link"
               color="neutral"
-              variant="subtle"
+              variant="outline"
+              block
             />
           </div>
         </UCard>
@@ -167,7 +169,7 @@ useMarketingSeo({
       :title="page.maintenance.title"
       :description="page.maintenance.description"
     >
-      <div class="grid gap-4 max-w-3xl mx-auto sm:grid-cols-2">
+      <div class="grid gap-4 max-w-3xl mx-auto sm:grid-cols-3">
         <UCard
           v-for="(item, index) in page.maintenance.items"
           :key="index"

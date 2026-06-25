@@ -40,7 +40,7 @@ export function buildProductPricingPage(productId: ProductId): ProductPricingPag
     notIncluded: product.notIncluded,
     model: {
       title: '도입 순서',
-      description: '서버는 병원에서 준비하고, 제니얼소프트가 설치·설정·안내를 담당합니다.',
+      description: '서버는 고객사에서 준비하고, 제니얼소프트가 설치·설정·안내를 담당합니다.',
       steps: pricingModelSteps,
     },
     maintenance: pricingMaintenance,
