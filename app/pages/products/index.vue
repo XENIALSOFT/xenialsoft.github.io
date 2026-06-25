@@ -16,7 +16,7 @@ useMarketingSeo({
     preview: item.preview,
     status: item.status,
     listPrice: item.listPrice
-      ? Number(item.listPrice.replace(/[^\d]/g, ''))
+      ? Number(item.listPrice.replace(/\D/g, ''))
       : undefined,
   })),
 });

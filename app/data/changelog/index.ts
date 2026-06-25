@@ -5,9 +5,9 @@ import type {
   ChangelogScope,
   ChangelogScopePageData,
 } from '~/types/site';
+import { changelogEntries } from '~/data/changelog/entries';
 import { currentVertical, siteKeywords } from '~/data/seo';
 import { isProductId, productList, productPackages } from '~/data/templates';
-import { changelogEntries } from '~/data/changelog/entries';
 
 export const changelogProductScopes = ['amber', 'beryl', 'crystal', 'admin'] as const;
 

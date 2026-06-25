@@ -1,8 +1,8 @@
-import type { FaqSeoItem, MarketingSeoSchema, PageSeo, ProductSeoItem } from '~/types/site';
 import type { ProductId } from '~/data/templates';
-import { isProductId, productPackages } from '~/data/templates';
+import type { FaqSeoItem, MarketingSeoSchema, PageSeo, ProductSeoItem } from '~/types/site';
 import { getChangelogScopeLabel, isChangelogRouteScope } from '~/data/changelog';
 import { businessHours, currentVertical, siteBrand, siteKeywords, starterOfferSchema } from '~/data/seo';
+import { isProductId, productPackages } from '~/data/templates';
 
 interface PricingProductOffer {
   name: string;
@@ -105,9 +105,8 @@ function buildPricingOffers(pageUrl: string, options: MarketingSeoOptions) {
   }
 
   return [{
-    '@type': 'Offer',
     ...starterOfferSchema,
-    'url': pageUrl,
+    url: pageUrl,
   }];
 }
 
@@ -167,8 +166,8 @@ function buildPageSchema(options: MarketingSeoOptions, pageUrl: string, path: st
             ? {
                 offers: {
                   '@type': 'Offer',
-                  price: String(product.listPrice),
-                  priceCurrency: 'KRW',
+                  'price': String(product.listPrice),
+                  'priceCurrency': 'KRW',
                 },
               }
             : {}),

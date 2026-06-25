@@ -1,12 +1,12 @@
+import type { ProductId } from '~/data/templates';
 import type { ProductPricingPageData } from '~/types/site';
+import { pricingMaintenance, pricingModelSteps } from '~/data/pricing/shared';
+import { currentVertical, siteKeywords } from '~/data/seo';
 import {
   contractDiscountNote,
   formatProductListPrice,
   productPackages,
 } from '~/data/templates';
-import type { ProductId } from '~/data/templates';
-import { pricingAddOns, pricingMaintenance, pricingModelSteps } from '~/data/pricing/shared';
-import { currentVertical, siteKeywords } from '~/data/seo';
 
 export function buildProductPricingPage(productId: ProductId): ProductPricingPageData {
   const product = productPackages[productId];
@@ -52,7 +52,7 @@ function buildProductFaq(productId: ProductId) {
   const product = productPackages[productId];
   const others = (['amber', 'beryl', 'crystal'] as const)
     .filter(id => id !== productId)
-    .map(id => {
+    .map((id) => {
       const p = productPackages[id];
       return `${p.name}(${formatProductListPrice(p)})`;
     })

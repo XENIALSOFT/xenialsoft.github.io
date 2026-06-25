@@ -21,7 +21,14 @@ const entries = getChangelogEntriesForScope(page.scope);
 const scopeName = getChangelogScopeLabel(page.scope);
 
 const heroLinks = computed(() => {
-  const links = [{
+  const links: Array<{
+    label: string;
+    icon: string;
+    to: string;
+    variant: 'ghost';
+    size: 'md';
+    target?: string;
+  }> = [{
     label: '업데이트 목록',
     icon: 'i-lucide-arrow-left',
     to: '/changelog',

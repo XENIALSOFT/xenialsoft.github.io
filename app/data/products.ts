@@ -1,6 +1,6 @@
 import type { ProductsPageData } from '~/types/site';
-import { contractDiscountNote, formatProductListPrice, productList } from '~/data/templates';
 import { currentVertical, siteKeywords } from '~/data/seo';
+import { contractDiscountNote, formatProductListPrice, productList } from '~/data/templates';
 
 const homepageProducts = productList.map(product => ({
   name: product.name,

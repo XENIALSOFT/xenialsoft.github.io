@@ -1,10 +1,9 @@
 import type { ProductId } from '~/data/templates';
-import { isProductId } from '~/data/templates';
 import { buildProductPricingPage } from '~/data/pricing/build-product-page';
-import { pricingHubPage } from '~/data/pricing/hub';
+import { isProductId } from '~/data/templates';
 
-export { pricingHubPage } from '~/data/pricing/hub';
 export { buildProductPricingPage } from '~/data/pricing/build-product-page';
+export { pricingHubPage } from '~/data/pricing/hub';
 
 export function getProductPricingPage(productId: string) {
   if (!isProductId(productId)) {
