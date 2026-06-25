@@ -37,12 +37,13 @@ defineProps<{
       </div>
     </div>
 
-    <div class="mt-auto">
+    <div class="mt-auto pt-1">
       <UButton
         label="업데이트 보기"
         :to="scope.to"
         trailing-icon="i-lucide-arrow-right"
         color="primary"
+        block
       />
     </div>
   </UCard>
