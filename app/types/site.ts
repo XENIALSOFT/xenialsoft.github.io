@@ -1,5 +1,5 @@
 import type { ButtonProps } from '@nuxt/ui';
-import type { PlanFeatureStatus } from '~/data/plans';
+import type { ProductId } from '~/data/templates';
 
 export interface PageSeo {
   title: string;
@@ -17,13 +17,15 @@ export interface ProductSeoItem {
   description: string;
   preview?: string;
   status: 'available' | 'coming-soon';
+  listPrice?: number;
 }
 
 export type MarketingSeoSchema
   = | 'home'
     | 'products'
     | 'pricing'
-    | 'contact';
+    | 'contact'
+    | 'changelog';
 
 export interface HeroLink extends ButtonProps {
   label: string;
@@ -76,12 +78,58 @@ export interface ProductItem {
   title: string;
   description: string;
   features: string[];
-  /** public/ 기준 경로. 예: '/products/xenial-homepage.png' */
   screenshot?: string;
   preview?: string;
   status: 'available' | 'coming-soon';
   badge?: string;
   reverse?: boolean;
+  pricingPath?: string;
+  changelogPath?: string;
+  listPrice?: string;
+}
+
+export type ChangelogProductScope = ProductId | 'admin';
+
+/** 전체 제품·관리자에 공통으로 적용되는 업데이트 */
+export type ChangelogScope = 'platform' | ChangelogProductScope;
+
+export interface ChangelogItemGroup {
+  label: string;
+  items: string[];
+}
+
+export interface ChangelogEntry {
+  id: string;
+  title: string;
+  date: string;
+  scope: ChangelogScope;
+  summary?: string;
+  groups: ChangelogItemGroup[];
+}
+
+export interface ChangelogScopeCard {
+  scope: ChangelogScope;
+  name: string;
+  tagline: string;
+  description: string;
+  icon: string;
+  to: string;
+}
+
+export interface ChangelogHubPageData {
+  seo: PageSeo;
+  title: string;
+  description: string;
+  siteScopes: ChangelogScopeCard[];
+  adminScope: ChangelogScopeCard;
+}
+
+export interface ChangelogScopePageData {
+  scope: ChangelogProductScope;
+  seo: PageSeo;
+  title: string;
+  description: string;
+  includesPlatform: boolean;
 }
 
 export interface ProductsPageData {
@@ -96,21 +144,6 @@ export interface ProductsPageData {
   };
 }
 
-export interface PricingPlanPrice {
-  amount: string;
-  suffix: string;
-}
-
-export interface PricingPlan {
-  title: string;
-  description: string;
-  price: PricingPlanPrice;
-  button: HeroLink;
-  features: string[];
-  highlight?: boolean;
-  scale?: boolean;
-}
-
 export interface PricingModelStep {
   title: string;
   description: string;
@@ -121,40 +154,68 @@ export interface PricingMaintenanceItem {
   description: string;
 }
 
-export interface PlanFeatureComparisonRow {
-  label: string;
-  starter: PlanFeatureStatus;
-  standard: PlanFeatureStatus;
-  business: PlanFeatureStatus;
-  enterprise: PlanFeatureStatus;
+export interface ProductPriceDisplay {
+  listAmount: string;
+  suffix: string;
+  discountNote: string;
 }
 
-export interface PlanFeatureComparisonGroup {
-  title: string;
-  description?: string;
-  rows: PlanFeatureComparisonRow[];
-}
-
-export interface PricingPageData {
+export interface ProductPricingPageData {
+  productId: ProductId;
   seo: PageSeo;
   title: string;
   description: string;
+  price: ProductPriceDisplay;
+  reservation: {
+    label: string;
+    description: string;
+  };
+  includedFeatures: string[];
+  notIncluded: string[];
   model: {
     title: string;
     description: string;
     steps: PricingModelStep[];
   };
-  plans: PricingPlan[];
-  productModel: {
+  maintenance: {
+    title: string;
+    description: string;
+    items: PricingMaintenanceItem[];
+  };
+  faq: {
+    title: string;
+    description: string;
+    items: Array<{ label: string; content: string }>;
+  };
+}
+
+export interface PricingHubProductCard {
+  productId: ProductId;
+  name: string;
+  tagline: string;
+  description: string;
+  reservationLabel: string;
+  listAmount: string;
+  discountNote: string;
+  icon: string;
+  to: string;
+  preview?: string;
+}
+
+export interface PricingHubPageData {
+  seo: PageSeo;
+  title: string;
+  description: string;
+  intro: {
     title: string;
     description: string;
     items: Array<{ title: string; description: string; icon: string }>;
   };
-  featureComparison: {
+  products: PricingHubProductCard[];
+  model: {
     title: string;
     description: string;
-    note: string;
-    groups: PlanFeatureComparisonGroup[];
+    steps: PricingModelStep[];
   };
   maintenance: {
     title: string;

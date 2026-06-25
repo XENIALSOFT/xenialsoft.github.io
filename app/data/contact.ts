@@ -1,11 +1,12 @@
 import type { ContactPageData } from '~/types/site';
 import { businessHours, currentVertical, siteKeywords } from '~/data/seo';
+import { contractDiscountNote } from '~/data/templates';
 
 export const contactPage: ContactPageData = {
   seo: {
     title: '문의하기 | 피부·미용 클리닉 도입·데모 상담',
     description:
-      `${currentVertical.label}용 제니얼 홈페이지·관리자 대시보드 도입, 견적, 데모 계정 요청. 이메일로 업종·지점·필요 기능을 알려 주시면 맞춤 안내해 드립니다.`,
+      `${currentVertical.label}용 홈페이지·관리자 도입, 견적, 데모 요청. 이메일로 업종·지점·필요 기능을 알려 주시면 안내해 드립니다.`,
     keywords: [
       ...siteKeywords,
       '피부과 홈페이지 문의',
@@ -14,7 +15,7 @@ export const contactPage: ContactPageData = {
     ],
   },
   title: '함께 새로운 가치를 만들어가요',
-  description: `${currentVertical.label} 도입·견적·데모 계정 요청은 이메일로 보내 주세요. 업종과 요구사항을 알려 주시면 맞춤 안내를 드립니다.`,
+  description: `${currentVertical.label} 도입·견적·데모 요청은 이메일로 보내 주세요. 업종과 요구사항을 알려 주시면 맞춤 안내를 드립니다.`,
   email: {
     title: '연락하기',
     description: `아래 주소로 메일을 보내 주세요. 소규모 팀으로 ${businessHours.label}에 순차 회신하며, 전담 담당자 배정이나 즉시 응답은 어렵습니다.`,
@@ -23,29 +24,29 @@ export const contactPage: ContactPageData = {
   },
   checklist: {
     title: '알려주시면 좋은 정보',
-    description: '아래 항목을 함께 적어 주시면 상담이 더 빠릅니다. 도입 절차와 요금은 요금 페이지에서 확인하실 수 있습니다.',
+    description: `아래 항목을 함께 적어 주시면 상담이 더 빠릅니다. 제품과 요금은 각 페이지에서 확인하실 수 있습니다. ${contractDiscountNote}.`,
     items: [
       {
         label: '업종·운영 형태',
-        hint: '예: 피부과 1개 지점, 다지점 허브 검토 중',
+        hint: '예: 피부과 1개 지점',
       },
       {
-        label: '관심 플랜',
-        hint: 'Starter / Standard / Business / Enterprise 중 희망 범위',
+        label: '관심 제품',
+        hint: '예: 풀기능형, 모바일 허브형, 간편 예약형',
       },
       {
-        label: '필요 기능',
-        hint: '예: 예약, 다국어, 외부 연동, 맞춤 화면',
+        label: '필요한 기능',
+        hint: '예: 시술별 예약, 다국어, 빠른 예약 접수',
       },
       {
         label: '희망 일정',
-        hint: '예: 2분기 오픈 목표, 서버 준비 완료',
+        hint: '예: 2분기 오픈 목표',
       },
     ],
   },
   cta: {
-    title: '아직 요금·제품을 보지 않으셨다면',
-    description: '플랜 비교와 피부·미용 클리닉 데모는 각 페이지에서 확인하신 뒤 문의해 주세요.',
+    title: '아직 제품·요금을 보지 않으셨다면',
+    description: '제품 소개와 요금을 확인하신 뒤 문의해 주세요.',
     links: [
       {
         label: '요금 안내',

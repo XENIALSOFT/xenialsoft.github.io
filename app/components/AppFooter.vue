@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { currentVertical } from '~/data/seo';
+import { productDemoUrls, productList } from '~/data/templates';
 
 const columns = [{
   label: '제품',
   children: [{
     label: '제품 소개',
     to: '/products',
-  }, {
-    label: '고객 홈페이지 데모',
-    to: 'https://alpha.xenialsoft.com',
+  }, ...productList.map(product => ({
+    label: `${product.name} 데모`,
+    to: productDemoUrls[product.id],
     target: '_blank',
-  }, {
-    label: '관리자 대시보드 데모',
+  })), {
+    label: '관리자 화면 데모',
     to: 'https://admin.xenialsoft.com',
     target: '_blank',
   }],
@@ -20,6 +21,9 @@ const columns = [{
   children: [{
     label: '요금',
     to: '/pricing',
+  }, {
+    label: '업데이트',
+    to: '/changelog',
   }, {
     label: '문의',
     to: '/contact',
@@ -40,7 +44,7 @@ const columns = [{
                 업종별 디지털 인프라
               </p>
               <p class="text-sm text-muted max-w-sm">
-                {{ currentVertical.label }}용 고객 홈페이지와 관리자 대시보드를 1:1 한 세트로 제공합니다.
+                {{ currentVertical.label }}용 고객 홈페이지와 관리자 화면을 한 세트로 제공합니다.
               </p>
             </div>
           </template>

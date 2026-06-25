@@ -10,6 +10,10 @@ const items = computed(() => [{
   to: '/pricing',
   active: route.path.startsWith('/pricing'),
 }, {
+  label: '업데이트',
+  to: '/changelog',
+  active: route.path.startsWith('/changelog'),
+}, {
   label: '문의',
   to: '/contact',
   active: route.path.startsWith('/contact'),

@@ -1,47 +1,114 @@
 import type { FaqSeoItem, MarketingSeoSchema, PageSeo, ProductSeoItem } from '~/types/site';
-import { planPricing } from '~/data/plans';
+import type { ProductId } from '~/data/templates';
+import { isProductId, productPackages } from '~/data/templates';
+import { getChangelogScopeLabel, isChangelogRouteScope } from '~/data/changelog';
 import { businessHours, currentVertical, siteBrand, siteKeywords, starterOfferSchema } from '~/data/seo';
 
+interface PricingProductOffer {
+  name: string;
+  listPrice: number;
+}
+
 interface MarketingSeoOptions extends PageSeo {
-  /** 홈 등 전역 titleTemplate 없이 전체 title을 쓸 때 */
   titleTemplate?: string;
-  /** JSON-LD 페이지 유형 */
   schema?: MarketingSeoSchema;
-  /** pricing 페이지 FAQ 스키마 */
   faq?: FaqSeoItem[];
-  /** products 페이지 제품 스키마 */
   products?: ProductSeoItem[];
+  pricingProductId?: ProductId;
+  pricingListPrice?: number;
+  pricingProducts?: PricingProductOffer[];
 }
 
 const breadcrumbLabels: Record<string, string> = {
   '/products': '제품 소개',
   '/pricing': '요금',
+  '/changelog': '업데이트',
   '/contact': '문의하기',
 };
 
+function buildBreadcrumbItems(path: string): Array<{ name: string; item: string }> {
+  const items: Array<{ name: string; item: string }> = [
+    { name: '홈', item: siteBrand.url },
+  ];
+
+  if (path.startsWith('/pricing/')) {
+    items.push({ name: '요금', item: `${siteBrand.url}/pricing` });
+    const segment = path.split('/')[2] ?? '';
+    if (isProductId(segment)) {
+      items.push({
+        name: productPackages[segment].name,
+        item: `${siteBrand.url}${path}`,
+      });
+    }
+    return items;
+  }
+
+  if (path.startsWith('/changelog/')) {
+    items.push({ name: '업데이트', item: `${siteBrand.url}/changelog` });
+    const segment = path.split('/')[2] ?? '';
+    if (isChangelogRouteScope(segment)) {
+      items.push({
+        name: getChangelogScopeLabel(segment),
+        item: `${siteBrand.url}${path}`,
+      });
+    }
+    return items;
+  }
+
+  const label = breadcrumbLabels[path];
+  if (label) {
+    items.push({ name: label, item: `${siteBrand.url}${path}` });
+  }
+
+  return items;
+}
+
 function buildBreadcrumbSchema(path: string) {
+  const items = buildBreadcrumbItems(path);
+  if (items.length <= 1) {
+    return null;
+  }
+
   return {
     '@type': 'BreadcrumbList',
-    'itemListElement': (() => {
-      const items: Array<{ name: string; item: string }> = [
-        { name: '홈', item: siteBrand.url },
-      ];
-
-      if (path !== '/') {
-        const label = breadcrumbLabels[path];
-        if (label) {
-          items.push({ name: label, item: `${siteBrand.url}${path}` });
-        }
-      }
-
-      return items.map((crumb, index) => ({
-        '@type': 'ListItem',
-        'position': index + 1,
-        'name': crumb.name,
-        'item': crumb.item,
-      }));
-    })(),
+    'itemListElement': items.map((crumb, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'name': crumb.name,
+      'item': crumb.item,
+    })),
   };
+}
+
+function buildPricingOffers(pageUrl: string, options: MarketingSeoOptions) {
+  if (options.pricingProductId && options.pricingListPrice) {
+    const product = productPackages[options.pricingProductId];
+    return [{
+      '@type': 'Offer',
+      'name': product.name,
+      'price': String(options.pricingListPrice),
+      'priceCurrency': 'KRW',
+      'description': `${product.name} 초기 구축 (VAT 별도)`,
+      'url': pageUrl,
+    }];
+  }
+
+  if (options.pricingProducts?.length) {
+    return options.pricingProducts.map(product => ({
+      '@type': 'Offer',
+      'name': product.name,
+      'price': String(product.listPrice),
+      'priceCurrency': 'KRW',
+      'description': `${product.name} 초기 구축 (VAT 별도)`,
+      'url': `${siteBrand.url}/pricing`,
+    }));
+  }
+
+  return [{
+    '@type': 'Offer',
+    ...starterOfferSchema,
+    'url': pageUrl,
+  }];
 }
 
 function buildPageSchema(options: MarketingSeoOptions, pageUrl: string, path: string) {
@@ -59,17 +126,18 @@ function buildPageSchema(options: MarketingSeoOptions, pageUrl: string, path: st
     },
   ];
 
-  if (path !== '/') {
-    schemas.push(buildBreadcrumbSchema(path));
+  const breadcrumb = buildBreadcrumbSchema(path);
+  if (breadcrumb) {
+    schemas.push(breadcrumb);
   }
 
   if (options.schema === 'home') {
     schemas.push({
       '@type': 'SoftwareApplication',
-      'name': '제니얼 홈페이지·관리자 대시보드',
+      'name': '제니얼 홈페이지·관리자',
       'applicationCategory': 'BusinessApplication',
       'operatingSystem': 'Web',
-      'description': `${currentVertical.label}용 고객 홈페이지와 관리자 대시보드 1:1 연동 세트`,
+      'description': `${currentVertical.label}용 고객 홈페이지와 관리자 화면 1세트`,
       'offers': starterOfferSchema,
       'provider': {
         '@type': 'Organization',
@@ -95,6 +163,15 @@ function buildPageSchema(options: MarketingSeoOptions, pageUrl: string, path: st
           ...(product.preview && product.status === 'available'
             ? { url: product.preview }
             : {}),
+          ...(product.listPrice
+            ? {
+                offers: {
+                  '@type': 'Offer',
+                  price: String(product.listPrice),
+                  priceCurrency: 'KRW',
+                },
+              }
+            : {}),
         },
       })),
     });
@@ -113,40 +190,19 @@ function buildPageSchema(options: MarketingSeoOptions, pageUrl: string, path: st
       })),
     });
 
+    const productName = options.pricingProductId
+      ? `${productPackages[options.pricingProductId].name} 홈페이지·관리자 구축`
+      : '제니얼 홈페이지·관리자 구축';
+
     schemas.push({
       '@type': 'Product',
-      'name': '제니얼 홈페이지·관리자 대시보드 구축',
-      'description': `${currentVertical.label}용 고객 서버 설치형 초기 구축 패키지`,
+      'name': productName,
+      'description': `${currentVertical.label}용 초기 구축 패키지`,
       'brand': {
         '@type': 'Brand',
         'name': siteBrand.name,
       },
-      'offers': [
-        {
-          '@type': 'Offer',
-          'name': planPricing.starter.title,
-          'price': String(planPricing.starter.amountNumeric),
-          'priceCurrency': 'KRW',
-          'description': planPricing.starter.offerDescription,
-          'url': `${siteBrand.url}/pricing`,
-        },
-        {
-          '@type': 'Offer',
-          'name': planPricing.standard.title,
-          'price': String(planPricing.standard.amountNumeric),
-          'priceCurrency': 'KRW',
-          'description': planPricing.standard.offerDescription,
-          'url': `${siteBrand.url}/pricing`,
-        },
-        {
-          '@type': 'Offer',
-          'name': planPricing.business.title,
-          'price': String(planPricing.business.amountNumeric),
-          'priceCurrency': 'KRW',
-          'description': planPricing.business.offerDescription,
-          'url': `${siteBrand.url}/pricing`,
-        },
-      ],
+      'offers': buildPricingOffers(pageUrl, options),
     });
   }
 

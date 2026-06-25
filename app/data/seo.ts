@@ -15,7 +15,7 @@ export const siteBrand = {
 export const currentVertical = {
   label: '피부·미용 클리닉',
   shortLabel: '피부·미용',
-  description: '피부과·미용 클리닉을 위한 고객 홈페이지와 관리자 대시보드 1세트',
+  description: '피부과·미용 클리닉을 위한 고객 홈페이지와 관리자 화면 1세트',
 } as const;
 
 export const siteKeywords = [
@@ -26,7 +26,7 @@ export const siteKeywords = [
   '피부과 예약 시스템',
   '클리닉 홈페이지 제작',
   '병원 홈페이지',
-  '관리자 대시보드',
+  '관리자 화면',
   '고객 홈페이지',
   '업종별 디지털 인프라',
   '제니얼 홈페이지',
@@ -41,12 +41,12 @@ export const organizationKnowsAbout = [
   '피부과 홈페이지',
   '클리닉 예약 시스템',
   '고객 홈페이지',
-  '관리자 대시보드',
+  '관리자 화면',
   '의료기관 디지털 전환',
 ] as const;
 
 export const defaultSeoDescription
-  = `${currentVertical.description}. 예약·회원·홍보·문의까지 한 지점 운영에 맞게 구축합니다. 다른 업종 템플릿은 순차 확대 예정입니다.`;
+  = `${currentVertical.description}. 예약·회원·홍보·문의까지 한 지점 운영에 맞게 구축합니다.`;
 
 /** indexable 페이지 robots meta (@nuxtjs/seo robotsEnabledValue와 동일) */
 export const robotsIndexValue
@@ -68,12 +68,12 @@ export const robotsNoIndexRoutes = {
   '/__sitemap__/**': { robots: false },
 } as const;
 
-/** Starter 플랜 JSON-LD Offer (SoftwareApplication·Product 공통) */
+/** 간편 예약형 제품 JSON-LD Offer (SoftwareApplication·Product 공통) */
 export const starterOfferSchema = {
   '@type': 'Offer' as const,
-  'price': '3500000',
+  'price': '4000000',
   'priceCurrency': 'KRW',
-  'description': 'Starter 플랜 초기 구축 (VAT 별도)',
+  'description': '간편 예약형 초기 구축 (VAT 별도)',
   'url': `${siteBrand.url}/pricing`,
 };
 

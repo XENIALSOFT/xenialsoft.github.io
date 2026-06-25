@@ -41,6 +41,12 @@ defineProps<{
             <p class="text-base text-muted text-pretty">
               {{ product.description }}
             </p>
+            <p
+              v-if="product.listPrice"
+              class="text-sm text-muted"
+            >
+              정가 {{ product.listPrice }} (초기 구축, VAT 별도)
+            </p>
           </div>
 
           <ul class="space-y-3">
@@ -62,12 +68,28 @@ defineProps<{
             class="flex flex-wrap gap-2 pt-1"
           >
             <UButton
+              v-if="product.pricingPath"
+              :to="product.pricingPath"
+              label="요금 보기"
+              trailing-icon="i-lucide-arrow-right"
+              color="primary"
+            />
+            <UButton
               v-if="product.preview"
               :to="product.preview"
               target="_blank"
               label="데모 보기"
               icon="i-lucide-eye"
-              color="primary"
+              :color="product.pricingPath ? 'neutral' : 'primary'"
+              :variant="product.pricingPath ? 'subtle' : undefined"
+            />
+            <UButton
+              v-if="product.changelogPath"
+              :to="product.changelogPath"
+              label="업데이트"
+              icon="i-lucide-history"
+              color="neutral"
+              variant="subtle"
             />
             <UButton
               to="/contact"
