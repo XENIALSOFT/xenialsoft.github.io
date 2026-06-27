@@ -37,8 +37,11 @@ export const commonInstallExcludes = [
   '맞춤 개발 (별도 협의)',
 ] as const;
 
+export type ProductStatus = 'available' | 'coming-soon';
+
 export interface ProductPackage {
   id: ProductId;
+  status: ProductStatus;
   /** 고객용 제품명 */
   name: string;
   tagline: string;
@@ -59,6 +62,7 @@ export interface ProductPackage {
 export const productPackages: Record<ProductId, ProductPackage> = {
   amber: {
     id: 'amber',
+    status: 'available',
     name: '풀기능형',
     tagline: '메뉴와 예약을 모두 갖춘형',
     description:
@@ -84,6 +88,7 @@ export const productPackages: Record<ProductId, ProductPackage> = {
   },
   beryl: {
     id: 'beryl',
+    status: 'coming-soon',
     name: '모바일 허브형',
     tagline: '스마트폰 홈 중심형',
     description:
@@ -112,6 +117,7 @@ export const productPackages: Record<ProductId, ProductPackage> = {
   },
   crystal: {
     id: 'crystal',
+    status: 'available',
     name: '간편 예약형',
     tagline: '빠른 예약 접수형',
     description:

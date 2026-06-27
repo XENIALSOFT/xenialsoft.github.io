@@ -7,7 +7,7 @@ const homepageProducts = productList.map(product => ({
   title: `${product.name} — ${product.tagline}`,
   description: `${product.description} (${product.reservationLabel})`,
   badge: product.reservationLabel,
-  status: 'available' as const,
+  status: product.status,
   preview: product.preview,
   screenshot: product.id === 'amber' ? '/products/xenial-homepage.png' : undefined,
   reverse: product.sortOrder % 2 === 0,

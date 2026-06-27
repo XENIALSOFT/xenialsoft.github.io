@@ -82,6 +82,14 @@ useMarketingSeo({
                 >
                   {{ product.tagline }}
                 </UBadge>
+                <UBadge
+                  v-if="product.status === 'coming-soon'"
+                  color="neutral"
+                  variant="outline"
+                  size="sm"
+                >
+                  준비 중
+                </UBadge>
               </div>
               <p class="text-sm text-muted">
                 {{ product.description }}
@@ -104,21 +112,32 @@ useMarketingSeo({
           </div>
 
           <div class="mt-auto flex flex-col gap-2 pt-4 border-t border-default">
+            <template v-if="product.status === 'available'">
+              <UButton
+                label="자세히 보기"
+                :to="product.to"
+                trailing-icon="i-lucide-arrow-right"
+                color="primary"
+                block
+              />
+              <UButton
+                v-if="product.preview"
+                label="데모 보기"
+                :to="product.preview"
+                target="_blank"
+                icon="i-lucide-external-link"
+                color="neutral"
+                variant="outline"
+                block
+              />
+            </template>
             <UButton
-              label="자세히 보기"
-              :to="product.to"
-              trailing-icon="i-lucide-arrow-right"
-              color="primary"
-              block
-            />
-            <UButton
-              v-if="product.preview"
-              label="데모 보기"
-              :to="product.preview"
-              target="_blank"
-              icon="i-lucide-external-link"
+              v-else
+              label="준비 중"
+              icon="i-lucide-clock"
               color="neutral"
-              variant="outline"
+              variant="subtle"
+              disabled
               block
             />
           </div>

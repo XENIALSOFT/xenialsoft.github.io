@@ -3,10 +3,6 @@ import { productsPage } from '~/data/products';
 
 const page = productsPage;
 
-const showcaseItems = computed(() =>
-  page.items.filter(item => item.status === 'available'),
-);
-
 useMarketingSeo({
   ...page.seo,
   schema: 'products',
@@ -31,7 +27,7 @@ useMarketingSeo({
 
     <div class="divide-y divide-default">
       <ProductShowcase
-        v-for="(product, index) in showcaseItems"
+        v-for="(product, index) in page.items"
         :key="index"
         :product="product"
       />

@@ -30,7 +30,7 @@ defineProps<{
                 variant="subtle"
                 size="sm"
               >
-                {{ product.badge }}
+                {{ product.status === 'coming-soon' ? '준비 중' : product.badge }}
               </UBadge>
             </div>
 

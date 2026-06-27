@@ -191,6 +191,7 @@ export interface ProductPricingPageData {
 
 export interface PricingHubProductCard {
   productId: ProductId;
+  status: 'available' | 'coming-soon';
   name: string;
   tagline: string;
   description: string;
@@ -234,10 +235,33 @@ export interface ContactChecklistItem {
   hint: string;
 }
 
+export interface ContactFormField {
+  label: string;
+  placeholder?: string;
+  hint?: string;
+  required?: boolean;
+}
+
 export interface ContactPageData {
   seo: PageSeo;
   title: string;
   description: string;
+  form: {
+    title: string;
+    description: string;
+    submitLabel: string;
+    successTitle: string;
+    successDescription: string;
+    fields: {
+      name: ContactFormField;
+      email: ContactFormField;
+      business: ContactFormField;
+      product: ContactFormField;
+      features: ContactFormField;
+      schedule: ContactFormField;
+      message: ContactFormField;
+    };
+  };
   email: {
     title: string;
     description: string;

@@ -51,6 +51,7 @@ export const pricingHubPage: PricingHubPageData = {
   },
   products: productList.map(product => ({
     productId: product.id,
+    status: product.status,
     name: product.name,
     tagline: product.tagline,
     description: product.description,

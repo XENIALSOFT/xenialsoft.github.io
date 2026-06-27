@@ -7,7 +7,9 @@ const columns = [{
   children: [{
     label: '제품 소개',
     to: '/products',
-  }, ...productList.map(product => ({
+  }, ...productList
+    .filter(product => product.status === 'available')
+    .map(product => ({
     label: `${product.name} 데모`,
     to: productDemoUrls[product.id],
     target: '_blank',

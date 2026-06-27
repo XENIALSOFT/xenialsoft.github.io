@@ -69,6 +69,12 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2026-05-06',
 
+  runtimeConfig: {
+    public: {
+      googleScriptUrl: process.env.NUXT_PUBLIC_GOOGLE_SCRIPT_URL || '',
+    },
+  },
+
   nitro: {
     preset: 'github-pages',
     esbuild: {

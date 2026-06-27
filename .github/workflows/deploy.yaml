@@ -50,6 +50,8 @@ jobs:
         run: pnpm install
 
       - name: Generate
+        env:
+          NUXT_PUBLIC_GOOGLE_SCRIPT_URL: ${{ secrets.NUXT_PUBLIC_GOOGLE_SCRIPT_URL }}
         run: pnpm run generate
 
       - name: Upload artifact
