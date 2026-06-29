@@ -103,9 +103,35 @@ async function onSubmit() {
 
     <form
       v-else
-      class="space-y-10 lg:space-y-12"
+      class="relative space-y-10 lg:space-y-12"
+      :aria-busy="isSubmitting"
       @submit.prevent="onSubmit"
     >
+      <div
+        v-if="isSubmitting"
+        class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 rounded-lg bg-default/80 backdrop-blur-sm"
+        aria-live="polite"
+      >
+        <div class="flex items-center justify-center size-16 rounded-2xl bg-primary/10">
+          <UIcon
+            name="i-lucide-loader-circle"
+            class="size-8 text-primary animate-spin"
+          />
+        </div>
+        <div class="space-y-1 text-center px-6">
+          <p class="text-base font-medium text-highlighted">
+            {{ form.submittingLabel }}
+          </p>
+          <p class="text-sm text-muted">
+            {{ form.submittingDescription }}
+          </p>
+        </div>
+      </div>
+
+      <fieldset
+        :disabled="isSubmitting"
+        class="space-y-10 lg:space-y-12 border-0 p-0 m-0 min-w-0"
+      >
       <UAlert
         v-if="!endpoint"
         color="warning"
@@ -263,8 +289,8 @@ async function onSubmit() {
       <div class="pt-4">
         <UButton
           type="submit"
-          :label="form.submitLabel"
-          trailing-icon="i-lucide-send"
+          :label="isSubmitting ? form.submittingLabel : form.submitLabel"
+          :trailing-icon="isSubmitting ? undefined : 'i-lucide-send'"
           color="primary"
           size="xl"
           block
@@ -272,6 +298,7 @@ async function onSubmit() {
           :disabled="!endpoint || isSubmitting"
         />
       </div>
+      </fieldset>
     </form>
   </UCard>
 </template>

@@ -20,6 +20,8 @@ export const contactPage: ContactPageData = {
     title: '문의 보내기',
     description: `소규모 팀으로 ${businessHours.label}에 순차 회신합니다. 전담 담당자 배정이나 즉시 응답은 어렵습니다.`,
     submitLabel: '문의 보내기',
+    submittingLabel: '문의를 전송하고 있습니다',
+    submittingDescription: '잠시만 기다려 주세요.',
     successTitle: '문의가 접수되었습니다',
     successDescription: '확인 후 입력하신 이메일로 답변드리겠습니다.',
     fields: {

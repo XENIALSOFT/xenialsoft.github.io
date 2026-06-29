@@ -250,6 +250,8 @@ export interface ContactPageData {
     title: string;
     description: string;
     submitLabel: string;
+    submittingLabel: string;
+    submittingDescription: string;
     successTitle: string;
     successDescription: string;
     fields: {
