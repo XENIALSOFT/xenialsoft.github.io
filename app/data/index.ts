@@ -20,7 +20,7 @@ export const indexPage: IndexPageData = {
     badge: '풀기능형 · 모바일 허브형 · 간편 예약형',
     image: {
       src: '/index/hero.png',
-      alt: '피부·미용 클리닉 고객을 위한 전문적인 서비스',
+      alt: '노트북과 스마트폰에서 확인하는 피부·미용 클리닉 운영 대시보드',
     },
     links: [
       {
