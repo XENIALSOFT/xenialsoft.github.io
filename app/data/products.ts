@@ -1,6 +1,16 @@
 import type { ProductsPageData } from '~/types/site';
 import { currentVertical, siteKeywords } from '~/data/seo';
-import { contractDiscountNote, formatProductListPrice, productList } from '~/data/templates';
+import {
+  contractDiscountNote,
+  formatProductListPrice,
+  productList,
+  type ProductId,
+} from '~/data/templates';
+
+const productScreenshots: Partial<Record<ProductId, string>> = {
+  amber: '/products/amber-home.png',
+  crystal: '/products/crystal-home.png',
+};
 
 const homepageProducts = productList.map(product => ({
   name: product.name,
@@ -9,7 +19,7 @@ const homepageProducts = productList.map(product => ({
   badge: product.reservationLabel,
   status: product.status,
   preview: product.preview,
-  screenshot: product.id === 'amber' ? '/products/xenial-homepage.png' : undefined,
+  screenshot: productScreenshots[product.id],
   reverse: product.sortOrder % 2 === 0,
   listPrice: formatProductListPrice(product),
   features: [

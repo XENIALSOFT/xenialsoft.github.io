@@ -40,7 +40,10 @@ useMarketingSeo({
         </p>
       </template>
 
-      <ImagePlaceholder />
+      <ImagePlaceholder
+        :src="page.hero.image?.src"
+        :alt="page.hero.image?.alt"
+      />
     </UPageHero>
 
     <UPageSection
@@ -52,7 +55,10 @@ useMarketingSeo({
       :reverse="section.reverse"
       :features="section.features"
     >
-      <ImagePlaceholder />
+      <ImagePlaceholder
+        :src="section.image?.src"
+        :alt="section.image?.alt"
+      />
     </UPageSection>
 
     <UPageSection

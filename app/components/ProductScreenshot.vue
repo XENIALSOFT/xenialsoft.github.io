@@ -19,7 +19,7 @@ defineProps<{
           v-if="src"
           :src="src"
           :alt="alt"
-          class="size-full object-cover object-top"
+          class="size-full object-cover object-left-top"
         >
         <div
           v-else

@@ -18,6 +18,10 @@ export const indexPage: IndexPageData = {
   description: `${currentVertical.label}을 위한 고객 홈페이지와 관리자 화면이 한 세트로 연결됩니다. 예약·회원·홍보·문의까지, 한 지점 운영에 맞게 구축하고 운영하세요.`,
   hero: {
     badge: '풀기능형 · 모바일 허브형 · 간편 예약형',
+    image: {
+      src: '/index/hero.png',
+      alt: '피부·미용 클리닉 고객을 위한 전문적인 서비스',
+    },
     links: [
       {
         label: '제품 살펴보기',
@@ -42,6 +46,10 @@ export const indexPage: IndexPageData = {
       description: '고객 홈페이지 1개와 관리 화면 1개가 연결됩니다. 한 지점을 한 세트로 운영하고, 추가 지점은 따로 구축합니다.',
       id: 'platform',
       orientation: 'horizontal',
+      image: {
+        src: '/index/platform-dashboard.png',
+        alt: '홈페이지와 관리자 화면이 연결된 클리닉 운영 대시보드',
+      },
       features: [
         {
           name: '고객 홈페이지',
@@ -65,6 +73,10 @@ export const indexPage: IndexPageData = {
       description: '실제와 비슷한 화면을 열어 보고, 제품과 요금을 비교한 뒤 문의하시면 됩니다.',
       orientation: 'horizontal',
       reverse: true,
+      image: {
+        src: '/index/demo-preview.png',
+        alt: '데모 화면을 노트북에서 확인하는 모습',
+      },
       features: [
         {
           name: '바로 체험',

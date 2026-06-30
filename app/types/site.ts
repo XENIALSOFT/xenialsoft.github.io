@@ -42,6 +42,11 @@ export interface FeatureItem {
   icon: string;
 }
 
+export interface PageImage {
+  src: string;
+  alt: string;
+}
+
 export interface PageSection {
   title: string;
   description: string;
@@ -49,6 +54,7 @@ export interface PageSection {
   orientation?: 'horizontal' | 'vertical';
   reverse?: boolean;
   features: FeatureItem[];
+  image?: PageImage;
 }
 
 export interface IndexPageData {
@@ -59,6 +65,7 @@ export interface IndexPageData {
   hero: {
     badge?: string;
     links: HeroLink[];
+    image?: PageImage;
   };
   sections: PageSection[];
   features: {
