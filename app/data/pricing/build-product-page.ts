@@ -1,5 +1,5 @@
 import type { ProductId } from '~/data/templates';
-import type { ProductPricingPageData } from '~/types/site';
+import type { ProductPricingPageData, ProductPricingScreenshot } from '~/types/site';
 import { pricingMaintenance, pricingModelSteps } from '~/data/pricing/shared';
 import { currentVertical, siteKeywords } from '~/data/seo';
 import {
@@ -13,6 +13,9 @@ export function buildProductPricingPage(productId: ProductId): ProductPricingPag
 
   return {
     productId,
+    status: product.status,
+    preview: product.preview,
+    screenshots: buildProductScreenshots(productId),
     seo: {
       title: `${product.name} 요금 | 피부·미용 클리닉 홈페이지`,
       description:
@@ -46,6 +49,58 @@ export function buildProductPricingPage(productId: ProductId): ProductPricingPag
     maintenance: pricingMaintenance,
     faq: buildProductFaq(productId),
   };
+}
+
+function picsumPlaceholder(seed: string) {
+  return `https://picsum.photos/seed/${seed}/800/500`;
+}
+
+function buildProductScreenshots(productId: ProductId): ProductPricingScreenshot[] {
+  const byProduct: Record<ProductId, ProductPricingScreenshot[]> = {
+    amber: [
+      {
+        src: '/products/amber-home.png',
+        alt: '풀기능형 홈 화면',
+        caption: '홈 화면 — 시술·이벤트·병원 소개 등 주요 메뉴',
+      },
+      {
+        src: '/products/amber-reservation.png',
+        alt: '풀기능형 일반 예약',
+        caption: '일반 예약 — 시술 메뉴를 고른 뒤 예약',
+      },
+      {
+        src: '/products/amber-admin.png',
+        alt: '관리자 예약 목록',
+        caption: '관리자 — 예약·회원 관리 (제품 공통)',
+      },
+    ],
+    beryl: [
+      {
+        src: picsumPlaceholder('beryl-home'),
+        alt: '모바일 허브형 홈 화면',
+        caption: '모바일 홈 — 배너·시술 소개 중심',
+      },
+      {
+        src: picsumPlaceholder('beryl-reservation'),
+        alt: '모바일 허브형 일반 예약',
+        caption: '일반 예약 — 시술 메뉴 선택',
+      },
+    ],
+    crystal: [
+      {
+        src: '/products/crystal-home.png',
+        alt: '간편 예약형 병원 소개 화면',
+        caption: '병원 소개 — 의료진·병원 안내 등 주요 메뉴',
+      },
+      {
+        src: '/products/crystal-reservation.png',
+        alt: '간편 예약형 간편 예약',
+        caption: '간편 예약 — 시술 페이지에서 빠른 접수',
+      },
+    ],
+  };
+
+  return byProduct[productId];
 }
 
 function buildProductFaq(productId: ProductId) {

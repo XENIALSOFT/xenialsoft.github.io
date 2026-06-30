@@ -2,24 +2,42 @@
 defineProps<{
   src?: string;
   alt: string;
+  /** 그리드 등에서 옆 요소와 세로 높이를 맞출 때 사용 */
+  fill?: boolean;
 }>();
 </script>
 
 <template>
-  <UPageCard variant="subtle">
-    <div class="overflow-hidden rounded-lg border border-default bg-elevated/50 shadow-sm">
+  <UPageCard
+    variant="subtle"
+    class="w-full max-w-none"
+    :class="fill && 'h-full'"
+    :ui="{
+      root: fill ? 'w-full max-w-none h-full' : 'w-full max-w-none',
+      ...(fill ? { body: 'h-full' } : {}),
+    }"
+  >
+    <div
+      class="w-full overflow-hidden rounded-lg border border-default bg-elevated/50 shadow-sm"
+      :class="fill && 'flex h-full flex-col'"
+    >
       <div class="flex items-center gap-1.5 border-b border-default px-4 py-2.5">
         <span class="size-2.5 rounded-full bg-error/80" />
         <span class="size-2.5 rounded-full bg-warning/80" />
         <span class="size-2.5 rounded-full bg-success/80" />
       </div>
 
-      <div class="relative aspect-[16/10]">
+      <div
+        class="relative w-full bg-muted/20"
+        :class="fill
+          ? 'relative min-h-[280px] h-full flex-1 sm:min-h-[320px]'
+          : 'relative aspect-[16/10]'"
+      >
         <img
           v-if="src"
           :src="src"
           :alt="alt"
-          class="size-full object-cover object-left-top"
+          class="size-full object-contain object-center"
         >
         <div
           v-else

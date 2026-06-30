@@ -167,8 +167,17 @@ export interface ProductPriceDisplay {
   discountNote: string;
 }
 
+export interface ProductPricingScreenshot {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
 export interface ProductPricingPageData {
   productId: ProductId;
+  status: 'available' | 'coming-soon';
+  preview?: string;
+  screenshots: ProductPricingScreenshot[];
   seo: PageSeo;
   title: string;
   description: string;
